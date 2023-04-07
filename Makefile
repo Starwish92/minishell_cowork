@@ -6,7 +6,7 @@
 #    By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 13:03:55 by youngjpa          #+#    #+#              #
-#    Updated: 2023/04/07 16:03:19 by yuhyeongmin      ###   ########.fr        #
+#    Updated: 2023/04/07 16:28:32 by yuhyeongmin      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,12 +31,13 @@ SRCS		=	minishell.c				 \
 				./utilites/utils3.c \
 				./utilites/utils4.c \
 				./utilites/utils5.c \
+				./testforder.c \
 
 OBJS		= $(SRCS:%.c=%.o)
 
 CC = gcc $(DEBUG)
 CFLAGS = 
-# -Werror -Wall -Wextra
+#-Werror -Wall -Wextra
 
 # SAN = -fsanitize=address -g3
 DEBUG = -g

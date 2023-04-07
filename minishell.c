@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:03:41 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:55:45 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/07 16:41:30 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,12 +182,12 @@ int	main(int argc, char *argv[], char *envp[])
 			parse(line, cmd);
 			replace(cmd, &env_head);
 			argc_checker(&cmd);
+			print_checker(cmd);
 			//여기까지가 파싱.
 			// executor(cmd, &env_head);
 			ft_free_list(cmd);
 		}
 		free(line);
-		//system("leaks minishell | grep leaked"); //
 	}
 	tcsetattr(STDIN_FILENO, TCSANOW, &term);
 	/*

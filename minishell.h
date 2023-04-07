@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 16:00:49 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/07 16:27:42 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ typedef struct s_info_env //s_info_env
 	struct s_info_env	*next; //next
 	struct s_info_env	*prev; //prev
 }	t_info_env; //t_info_env
+
+void print_checker(t_cmd_info *cmd);
 
 void		*ft_frees(void *ptr);
 t_cmd_info	*ft_list_init(void);
