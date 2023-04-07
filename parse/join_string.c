@@ -6,11 +6,11 @@
 /*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:50:43 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:16:02 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:50:41 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 char	*ft_strjoin_char(char *s1, char s2)
 {

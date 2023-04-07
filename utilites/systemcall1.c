@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   systemcall1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:59:24 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:23:31 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/07 15:47:23 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ft_system_calls.c
-#include "utiles.h"
+#include "../minishell.h"
 
 int	ft_open(char *fname, int oflag, int mode)
 {

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   file_open_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:01:26 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:22:16 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/07 15:47:03 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../minishell.h"
 
-// is_exist_file.c
 int	is_exist_file(char *tmp_file_name)
 {
 	int	fd;

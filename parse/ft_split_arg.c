@@ -6,11 +6,11 @@
 /*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:51:31 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:31:44 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:50:41 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 static void	*is_free(char **str, int str_index)
 {

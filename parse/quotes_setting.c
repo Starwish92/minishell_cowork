@@ -6,11 +6,11 @@
 /*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:44:43 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:17:12 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:46:25 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 int	parse_set_quotes(char line, int quotes, t_cmd_info *cmd) //리턴값 quote, 0으로 초기화된 상태
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:57:38 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:24:18 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/07 15:47:32 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utiles.h"
+#include "../minishell.h"
 
 int	ft_atoi(const char *str)
 {

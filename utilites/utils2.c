@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:57:48 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:24:53 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/07 15:47:36 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utiles.h"
+#include "../minishell.h"
 
 int	ft_isdigit(int c)
 {

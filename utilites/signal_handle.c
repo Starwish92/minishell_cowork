@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   signal_handle.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:00:07 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:23:08 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/07 15:47:18 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// signal.c
-#include "utiles.h"
+#include "../minishell.h"
 
 void	signal_handler(int signo)
 {

@@ -6,11 +6,11 @@
 /*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:44:06 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:16:42 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:50:42 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 static char	*parse_in_pipe(char *str, int *pipe, t_cmd_info **cmd, t_cmd_info *next) //str == echo 42
 {

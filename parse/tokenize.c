@@ -6,11 +6,11 @@
 /*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:54:59 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:31:44 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:46:35 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 static char	*replace_while_dollar(char str, char *new, t_info_env *head, int quotes)
 {

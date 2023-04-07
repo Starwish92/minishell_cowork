@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 15:27:56 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/07 15:28:13 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/07 15:47:50 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utiles.h"
+#include "../minishell.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

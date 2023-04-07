@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   exit_errono.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:58:40 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:22:02 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/07 15:46:55 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// exit_with_error.c
-#include "utiles.h"
+#include "../minishell.h"
 
 void	exit_with_err(char *str1, char *str2, int exit_code)
 {

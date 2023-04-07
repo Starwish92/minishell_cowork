@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   systemcall2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:59:37 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:23:44 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/07 15:47:28 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// system_calls2
-#include "utiles.h"
+#include "../minishell.h"
 
 int	ft_write(int fd, const void *buf, size_t byte)
 {

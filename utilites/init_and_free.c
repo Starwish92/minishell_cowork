@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_and_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:03:42 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:22:51 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/07 15:47:11 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//struct->cmd.c
-#include "struct.h"
+#include "../minishell.h"
 
 void	*ft_frees(void *ptr)
 {
