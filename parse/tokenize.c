@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   tokenize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:54:59 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:46:35 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:58:51 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
+
+char	*ft_getenv(t_info_env *env_head, char *key)
+{
+	t_info_env	*cur;
+
+	cur = compare_env_key(env_head, key);
+	return (cur->value);
+}
 
 static char	*replace_while_dollar(char str, char *new, t_info_env *head, int quotes)
 {

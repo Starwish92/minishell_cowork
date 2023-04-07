@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:50:38 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:00:49 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,13 @@ static char	*replace_while_else(char c, char *new, int quotes);
 static int	dollar_check(char c);
 static char	*replace_while(t_cmd_info *cmd, t_info_env *head, int i);
 void		replace(t_cmd_info *cmd, t_info_env *head);
+
+int	init_env_list(t_info_env *cur, char **envp);
+t_info_env	*new_env(char *key_value);
+t_info_env	*compare_env_key(t_info_env *env_head, char *key);
+char	*get_env_value(char *key_value);
+char	*get_env_key(char *key_value);
+
 
 
 #endif

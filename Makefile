@@ -3,39 +3,41 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+         #
+#    By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 13:03:55 by youngjpa          #+#    #+#              #
-#    Updated: 2023/04/07 15:49:21 by hyyoo            ###   ########.fr        #
+#    Updated: 2023/04/07 16:03:19 by yuhyeongmin      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 SRCS		=	minishell.c				 \
-				./parse/argc_checker.c 	 \
+				./parse/arg_check.c 	 \
 				./parse/ft_split_arg.c   \
 				./parse/join_string.c    \
 				./parse/parse.c 		 \
 				./parse/quotes_setting.c \
 				./parse/tokenize_util.c  \
 				./parse/tokenize.c		 \
-				./utillites/exit_errono.c \
-				./utillites/file_open_check.c\
-				./utillites/init_and_free.c \
-				./utillites/signal_handle.c \
-				./utillites/systemcall1.c \
-				./utillites/systemcall2.c \
-				./utillites/util1.c \
-				./utillites/util2.c \
-				./utillites/util3.c \
-				./utillites/util4.c \
-				./utillites/util5.c \
+				./utilites/exit_errono.c \
+				./utilites/file_open_check.c\
+				./utilites/init_and_free.c \
+				./utilites/signal_handle.c \
+				./utilites/systemcall1.c \
+				./utilites/systemcall2.c \
+				./utilites/utils1.c \
+				./utilites/utils2.c \
+				./utilites/utils3.c \
+				./utilites/utils4.c \
+				./utilites/utils5.c \
 
 OBJS		= $(SRCS:%.c=%.o)
 
 CC = gcc $(DEBUG)
-CFLAGS = -Werror -Wall -Wextra
+CFLAGS = 
+# -Werror -Wall -Wextra
+
 # SAN = -fsanitize=address -g3
 DEBUG = -g
 READLINE_LIB 	= -lreadline -L/opt/homebrew/opt/readline/lib
