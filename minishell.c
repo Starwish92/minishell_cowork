@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:03:41 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:31:45 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:38:23 by hyyoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int argc, char *argv[], char *envp[])
 			replace(cmd, &env_head);
 			argc_checker(&cmd);
 			//여기까지가 파싱.
-			executor(cmd, &env_head);
+			// executor(cmd, &env_head);
 			ft_free_list(cmd);
 		}
 		free(line);

@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_open_check.c                                  :+:      :+:    :+:   */
+/*   utils5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/07 14:01:26 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:22:16 by hyyoo            ###   ########.fr       */
+/*   Created: 2023/04/07 15:27:56 by hyyoo             #+#    #+#             */
+/*   Updated: 2023/04/07 15:28:13 by hyyoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "utiles.h"
 
-// is_exist_file.c
-int	is_exist_file(char *tmp_file_name)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	fd;
+	unsigned char	*t1;
+	unsigned char	*t2;
 
-	fd = open(tmp_file_name, O_RDONLY);
-	close(fd);
-	if (fd == -1)
-		return (0);
-	else
-		return (1);
+	t1 = (unsigned char *)s1;
+	t2 = (unsigned char *)s2;
+	while (n-- > 0)
+	{
+		if (*t1 != *t2 || !*t1 || !*t2)
+			return (*t1 - *t2);
+		++t1;
+		++t2;
+	}
+	return (0);
 }
