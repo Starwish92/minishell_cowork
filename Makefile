@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: shane <shane@student.42.fr>                +#+  +:+       +#+         #
+#    By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 13:03:55 by youngjpa          #+#    #+#              #
-#    Updated: 2023/04/14 16:04:34 by shane            ###   ########.fr        #
+#    Updated: 2023/04/14 16:20:44 by yuhyeongmin      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,11 +47,11 @@ SRCS		=	minishell.c				 \
 				./builtins/cd_utils.c\
 				./builtins/ft_cd.c\
 				./builtins/ft_env.c\
+				./builtins/ft_echo.c\
 				./builtins/ft_exit.c\
 				./builtins/ft_export_check_valid.c\
 				./builtins/ft_export_no_arg_utils.c\
 				./builtins/ft_export.c\
-				./builtins/ft_getenv.c\
 				./builtins/ft_pwd.c\
 				./builtins/ft_unset.c\
 

@@ -2,6 +2,16 @@
 
 #include "../minishell.h"
 
+char	*ft_getcwd(char *buf, size_t size)
+{
+	char	*pwd;
+
+	pwd = getcwd(buf, size);
+	if (pwd == NULL)
+		exit_errno("getcwd()", strerror(errno), EXIT_FAILURE);
+	return (pwd);
+}
+
 char	*get_pwd_key_value(const char *key)
 {
 	char	*tmp;
