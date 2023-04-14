@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_valid_syntex.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:32 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 16:43:09 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/14 17:43:02 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static int	check_alone_pipe(t_cmd_info *cmd)
 
 static int	check_redirection_file(t_cmd_info *cmd, int i, int ret)
 {
-	const char	oc[2] = {-76, '\0'};
-	const char	oa[3] = {-76, -76, '\0'};
-	const char	ic[2] = {-74, '\0'};
-	const char	ia[3] = {-74, -76, '\0'};
+	const char	oc[2] = {-62, '\0'};
+	const char	oa[3] = {-62, -62, '\0'};
+	const char	ic[2] = {-60, '\0'};
+	const char	ia[3] = {-60, -62, '\0'};
 
 	if (cmd->ac == 0)
 		return (0);

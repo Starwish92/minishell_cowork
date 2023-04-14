@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:36 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/12 14:03:02 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:46:10 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	restore_redirection_char(t_cmd_info *cmd)
 		j = 0;
 		while (cmd->cmd_and_av[i][j])
 		{
-			if (cmd->cmd_and_av[i][j] == -74)
+			if (cmd->cmd_and_av[i][j] == -60)
 				cmd->cmd_and_av[i][j] = '<';
-			else if (cmd->cmd_and_av[i][j] == -76)
+			else if (cmd->cmd_and_av[i][j] == -62)
 				cmd->cmd_and_av[i][j] = '>';
 			++j;
 		}

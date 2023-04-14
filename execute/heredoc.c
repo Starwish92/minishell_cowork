@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:00:55 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/12 14:43:45 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:46:10 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	check_heredoc(t_cmd_info *cmd)
 {
 	int			idx;
-	const char	redir_h[3] = {-74, -74, '\0'};
+	const char	redir_h[3] = {-60, -60, '\0'};
 
 	idx = -1;
 	while (cmd->cmd_and_av[++idx])
@@ -67,7 +67,7 @@ static int	do_fork_heredoc(t_cmd_info *cmd, int index_lim)
 {
 	pid_t		pid;
 	int			ret;
-	const char	redir_h[3] = {-74, -74, '\0'};
+	const char	redir_h[3] = {-60, -60, '\0'};
 
 	set_signal(DFL, SHE);
 	pid = fork();

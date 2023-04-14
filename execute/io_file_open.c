@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   io_file_open.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:01:33 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/12 14:33:06 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:46:10 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	trim_cmd_argv(t_cmd_info *cmd, const char *set, int size)
 static void	infile_open(t_cmd_info *cmd)
 {
 	int			i;
-	const char	redir_in[2] = {-74, '\0'};
+	const char	redir_in[2] = {-60, '\0'};
 
 	while (1)
 	{
@@ -65,8 +65,8 @@ static void	infile_open(t_cmd_info *cmd)
 static void	outfile_open_trim(t_cmd_info *cmd, int i)
 {
 	int			o_flag;
-	const char	r_o[2] = {-76, '\0'};
-	const char	r_a[3] = {-76, -76, '\0'};
+	const char	r_o[2] = {-62, '\0'};
+	const char	r_a[3] = {-62, -62, '\0'};
 
 	if (ft_strcmp(cmd->cmd_and_av[i], r_o) == 0)
 	{
@@ -85,8 +85,8 @@ static void	outfile_open_trim(t_cmd_info *cmd, int i)
 static void	outfile_open(t_cmd_info *cmd)
 {
 	int			i;
-	const char	r_o[2] = {-76, '\0'};
-	const char	r_a[3] = {-76, -76, '\0'};
+	const char	r_o[2] = {-62, '\0'};
+	const char	r_a[3] = {-62, -62, '\0'};
 
 	while (1)
 	{
