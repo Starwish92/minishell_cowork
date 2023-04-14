@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:50 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 20:54:14 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/14 21:20:34 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,15 +123,15 @@ static void	do_cmd(t_cmd_info *cmd, t_env_info *info_env)
 	ft_close_not_use_fd(cmd, 1);
 }
 
-void	execute(t_cmd_info *cmd_head, t_env_info *info_env)
+void	execute(t_cmd_info *cmd, t_env_info *info_env)
 {
 	t_cmd_info	*cmd_cur;
 
-	cmd_cur = cmd_head;
-	if (check_valid_token(cmd_head) == -1)
-		return (ft_clear_command(cmd_head));
+	cmd_cur = cmd;
+	if (check_valid_token(cmd) == -1)
+		return (ft_clear_command(cmd));
 	if (ft_here_init(cmd_cur) == -1)
-		return (ft_clear_command(cmd_head));
+		return (ft_clear_command(cmd));
 	while (cmd_cur)
 	{
 		if (io_file_open(cmd_cur, info_env) == -1)
@@ -147,5 +147,5 @@ void	execute(t_cmd_info *cmd_head, t_env_info *info_env)
 	}
 	wait_child();
 	set_signal(SHE, SHE);
-	return (ft_clear_command(cmd_head));
+	return (ft_clear_command(cmd));
 }
