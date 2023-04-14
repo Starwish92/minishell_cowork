@@ -15,7 +15,7 @@ static int	ft_option_ch(char *str)
 	return (1);
 }
 
-static int	ft_option_ch_n(int argc, char *argv[], int *idx)
+static int	ft_option_ch_n(int argc, char **argv, int *idx)
 {
 	int	i;
 	int	option_n;
