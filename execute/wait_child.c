@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wait_child.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:02:13 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/12 14:06:13 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/14 19:45:11 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	wait_child(void)
 {
-	int		status;
-	int		signo;
-	int		i;
+	int	status;
+	int	signo;
+	int	i;
 
 	i = 0;
 	while (wait(&status) != -1)

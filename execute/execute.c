@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:50 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 18:05:45 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/14 19:16:01 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,23 +77,6 @@ static int	os_builtins(t_cmd_info *cmd, t_env_info *info_env)
 
 static int	execute_cmd(t_cmd_info *cmd, t_env_info *info_env)
 {
-	// restore_redirection_char(cmd);
-	// if (!ft_strcmp(cmd->cmd_and_av[0], "echo"))
-	// 	return (ft_echo(cmd, info_env));
-	// if (!ft_strcmp(cmd->cmd_and_av[0], "cd"))
-	// 	return (ft_cd(cmd, info_env));
-	// if (!ft_strcmp(cmd->cmd_and_av[0], "pwd"))
-	// 	return (ft_pwd(cmd, info_env));
-	// // if (!ft_strcmp(cmd->cmd_and_av[0], "export"))
-	// // 	return (ft_export(cmd, info_env));
-	// if (!ft_strcmp(cmd->cmd_and_av[0], "unset"))
-	// 	return (ft_unset(cmd, info_env));
-	// if (!ft_strcmp(cmd->cmd_and_av[0], "env"))
-	// 	return (ft_env(cmd, info_env));
-	// if (!ft_strcmp(cmd->cmd_and_av[0], "exit"))
-	// 	return (ft_exit(cmd));
-	// return (os_builtins(cmd, info_env));
-	// return 0;
 	restore_redirection_char(cmd);
 	if (!ft_strcmp(cmd->cmd_and_av[0], "echo"))
 		return (ft_echo(cmd->ac, cmd->cmd_and_av));
