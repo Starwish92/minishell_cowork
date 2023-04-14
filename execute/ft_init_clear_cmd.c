@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_and_clear_cmd.c                               :+:      :+:    :+:   */
+/*   ft_init_clear_cmd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:01:14 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/12 15:20:13 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/14 20:54:58 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int	init_heredoc(t_cmd_info *cmd)
+int	ft_here_init(t_cmd_info *cmd)
 {
 	t_cmd_info	*cur;
 
@@ -26,7 +26,7 @@ int	init_heredoc(t_cmd_info *cmd)
 	return (0);
 }
 
-void	clear_cmd(t_cmd_info *cmd)
+void	ft_clear_command(t_cmd_info *cmd)
 {
 	t_cmd_info	*cur;
 
@@ -43,5 +43,5 @@ void	clear_cmd(t_cmd_info *cmd)
 			cur->ft_command_path = ft_free(cur->ft_command_path);
 		cur = cur->next;
 	}
-	delete_tmp_file();
+	ft_del_tmpfile();
 }

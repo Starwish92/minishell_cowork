@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 20:09:22 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/14 20:54:58 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 
 # define READ 0
 # define WRITE 1
+# define REDIR_L -60
+# define REDIR_R -62
 
 # define SHE 0
 # define DFL 1
@@ -148,23 +150,23 @@ static void	do_fork_cmd(t_cmd_info *cmd, t_env_info *info_env);
 static void	do_cmd(t_cmd_info *cmd, t_env_info *info_env);
 
 void	execute(t_cmd_info *cmd, t_env_info *info_env);
-void	redirect(t_cmd_info *cmd);
+void	ft_redirect(t_cmd_info *cmd);
 int		heredoc(t_cmd_info *cmd);
-void	close_unused_fd(t_cmd_info *cmd, pid_t pid);
-int		check_valid_syntax(t_cmd_info *cmd);
+void	ft_close_not_use_fd(t_cmd_info *cmd, pid_t pid);
+int		check_valid_token(t_cmd_info *cmd);
 void	wait_child(void);
-int		is_need_fork(t_cmd_info *cmd);
+int		ft_is_need_fork_cmd(t_cmd_info *cmd);
 void	restore_redirection_char(t_cmd_info *cmd);
 
-char	*get_cmd_path(t_cmd_info *cmd, t_env_info *info_env);
+char	*ft_get_cmd_path(t_cmd_info *cmd, t_env_info *info_env);
 
 int		io_file_open(t_cmd_info *cmd, t_env_info *info_env);
-void	trim_cmd_argv(t_cmd_info *cmd, const char *set, int direction);
+void	ft_command_argv_trim(t_cmd_info *cmd, const char *set, int direction);
 
-char	*get_tmp_file_name(void);
-void	delete_tmp_file(void);
-int		init_heredoc(t_cmd_info *cmd);
-void	clear_cmd(t_cmd_info *cmd);
+char	*ft_get_tmp_file(void);
+void	ft_del_tmpfile(void);
+int		ft_here_init(t_cmd_info *cmd);
+void	ft_clear_command(t_cmd_info *cmd);
 
 int		ft_open(char *fname, int oflag, int mode);
 int		ft_close(int fd);

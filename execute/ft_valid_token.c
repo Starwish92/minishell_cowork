@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_valid_syntex.c                               :+:      :+:    :+:   */
+/*   ft_valid_token.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:32 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 17:43:02 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/14 20:34:47 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static int	check_alone_pipe(t_cmd_info *cmd)
+static int	ft_check_start_one_pipe(t_cmd_info *cmd)
 {
 	if (cmd->ft_pipe_flag && cmd->ac == 0)
 	{
@@ -23,12 +23,12 @@ static int	check_alone_pipe(t_cmd_info *cmd)
 	return (0);
 }
 
-static int	check_redirection_file(t_cmd_info *cmd, int i, int ret)
+static int	ft_check_redir_files(t_cmd_info *cmd, int i, int ret)
 {
-	const char	oc[2] = {-62, '\0'};
-	const char	oa[3] = {-62, -62, '\0'};
-	const char	ic[2] = {-60, '\0'};
-	const char	ia[3] = {-60, -62, '\0'};
+	const char	oc[2] = {REDIR_R, '\0'};
+	const char	oa[3] = {REDIR_R, REDIR_R, '\0'};
+	const char	ic[2] = {REDIR_L, '\0'};
+	const char	ia[3] = {REDIR_L, REDIR_R, '\0'};
 
 	if (cmd->ac == 0)
 		return (0);
@@ -51,7 +51,7 @@ static int	check_redirection_file(t_cmd_info *cmd, int i, int ret)
 	return (0);
 }
 
-static int	check_empty_cmd(t_cmd_info *cmd)
+static int	ft_check_empty_token(t_cmd_info *cmd)
 {
 	if (cmd->ft_dollar_flag == false && cmd->ac == 1 && \
 			!ft_strcmp(cmd->cmd_and_av[0], ""))
@@ -63,20 +63,20 @@ static int	check_empty_cmd(t_cmd_info *cmd)
 	return (0);
 }
 
-int	check_valid_syntax(t_cmd_info *cmd)
+int	check_valid_token(t_cmd_info *cmd)
 {
 	t_cmd_info	*cur;
 
 	cur = cmd;
-	if (check_alone_pipe(cmd) == -1)
+	if (ft_check_start_one_pipe(cmd) == -1)
 		return (-1);
 	if (cur->ac == 0)
 		return (-1);
 	while (cur)
 	{
-		if (check_empty_cmd(cur) == -1)
+		if (ft_check_empty_token(cur) == -1)
 			return (-1);
-		else if (check_redirection_file(cur, 0, 0) == -1)
+		else if (ft_check_redir_files(cur, 0, 0) == -1)
 			return (-1);
 		cur = cur->next;
 	}

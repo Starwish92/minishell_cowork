@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:44:06 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/13 14:47:29 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/14 20:29:45 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*add_redirect_space(char *str, char *input, char c)
 		if (!(*input == '>' || *input == ' '))
 			str = ft_join_ascii(str, ' ');
 		input++;
-		str = ft_join_ascii(str, -62);
+		str = ft_join_ascii(str, REDIR_R);
 		input++;
 		if (!(*input == '>' || *input == ' '))
 			str = ft_join_ascii(str, ' ');
@@ -46,7 +46,7 @@ static char	*add_redirect_space(char *str, char *input, char c)
 		if (!(*input == '<' || *input == ' '))
 			str = ft_join_ascii(str, ' ');
 		input++;
-		str = ft_join_ascii(str, -60);
+		str = ft_join_ascii(str, REDIR_L);
 		input++;
 		if (!(*input == '<' || *input == ' '))
 			str = ft_join_ascii(str, ' ');

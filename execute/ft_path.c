@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   path.c                                             :+:      :+:    :+:   */
+/*   ft_path.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:01:41 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 19:15:57 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/14 20:53:59 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	free_path(char **path)
 	free (path);
 }
 
-static char	*get_absolute_path(t_cmd_info *cmd, char *path_env)
+static char	*ft_get_abs_path(t_cmd_info *cmd, char *path_env)
 {
 	char	*ret;
 	char	*slash;
@@ -47,7 +47,7 @@ static char	*get_absolute_path(t_cmd_info *cmd, char *path_env)
 	return (ret);
 }
 
-static int	check_relative(char *str)
+static int	ft_chk_relative(char *str)
 {
 	int	i;
 	int	ret;
@@ -65,17 +65,17 @@ static int	check_relative(char *str)
 	return (ret);
 }
 
-char	*get_cmd_path(t_cmd_info *cmd, t_env_info *info_env)
+char	*ft_get_cmd_path(t_cmd_info *cmd, t_env_info *info_env)
 {
 	char	*ret;
 	char	*path_env;
 
 	ret = NULL;
 	path_env = ft_getenv(info_env, "PATH");
-	if (check_relative(cmd->cmd_and_av[0]) && is_exist_file(cmd->cmd_and_av[0]))
+	if (ft_chk_relative(cmd->cmd_and_av[0]) && is_exist_file(cmd->cmd_and_av[0]))
 		return (ft_strdup(cmd->cmd_and_av[0]));
 	else if (path_env != NULL)
-		ret = get_absolute_path(cmd, path_env);
+		ret = ft_get_abs_path(cmd, path_env);
 	if (ret == NULL && is_exist_file(cmd->cmd_and_av[0]))
 		return (ft_strdup(cmd->cmd_and_av[0]));
 	return (ret);

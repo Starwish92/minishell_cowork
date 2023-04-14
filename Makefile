@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: shane <shane@student.42.fr>                +#+  +:+       +#+         #
+#    By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 13:03:55 by youngjpa          #+#    #+#              #
-#    Updated: 2023/04/14 20:06:28 by shane            ###   ########.fr        #
+#    Updated: 2023/04/14 20:56:35 by yuhyeongmin      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,16 +35,14 @@ SRCS		=	minishell.c				 \
 				./env/env_utils.c	\
 				./env/env_utils2.c	\
 				./execute/execute.c	\
-				./execute/check_valid_syntex.c\
-				./execute/close_unused_fd.c\
-				./execute/execute_utils.c\
-				./execute/heredoc.c\
-				./execute/init_and_clear_cmd.c\
-				./execute/io_file_open.c\
-				./execute/path.c\
-				./execute/redirection.c\
-				./execute/tmp_file.c\
-				./execute/wait_child.c\
+				./execute/ft_valid_token.c\
+				./execute/ft_exec_utils.c\
+				./execute/ft_heredoc.c\
+				./execute/ft_init_clear_cmd.c\
+				./execute/ft_open_files.c\
+				./execute/ft_path.c\
+				./execute/ft_redirection.c\
+				./execute/ft_temp_file.c\
 				./builtins/cd_utils.c\
 				./builtins/ft_cd.c\
 				./builtins/ft_env.c\

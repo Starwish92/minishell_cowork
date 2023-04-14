@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heredoc.c                                          :+:      :+:    :+:   */
+/*   ft_heredoc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:00:55 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 19:45:21 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/14 20:53:11 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static int	check_heredoc(t_cmd_info *cmd)
+static int	ft_check_heredoc(t_cmd_info *cmd)
 {
 	int			idx;
-	const char	redir_h[3] = {-60, -60, '\0'};
+	const char	redir_h[3] = {REDIR_L, REDIR_L, '\0'};
 
 	idx = -1;
 	while (cmd->cmd_and_av[++idx])
@@ -26,7 +26,7 @@ static int	check_heredoc(t_cmd_info *cmd)
 	return (idx);
 }
 
-static void	input_heredoc(t_cmd_info *cmd, int index_lim)
+static void	ft_new_input_heredoc(t_cmd_info *cmd, int index_lim)
 {
 	char	*line;
 	char	*limiter;
@@ -48,7 +48,7 @@ static void	input_heredoc(t_cmd_info *cmd, int index_lim)
 	}
 }
 
-static int	wait_heredoc(pid_t pid)
+static int	ft_wait_heredoc(pid_t pid)
 {
 	int		status;
 	int		signo;
@@ -63,17 +63,17 @@ static int	wait_heredoc(pid_t pid)
 	return (EXIT_SUCCESS);
 }
 
-static int	do_fork_heredoc(t_cmd_info *cmd, int index_lim)
+static int	ft_fork_heredoc(t_cmd_info *cmd, int index_lim)
 {
 	pid_t		pid;
 	int			ret;
-	const char	redir_h[3] = {-60, -60, '\0'};
+	const char	redir_h[3] = {REDIR_L, REDIR_L, '\0'};
 
 	set_signal(DFL, SHE);
 	pid = fork();
 	if (pid == 0)
 	{
-		input_heredoc(cmd, index_lim + 1);
+		ft_new_input_heredoc(cmd, index_lim + 1);
 		cmd->ft_in_files = ft_close(cmd->ft_in_files);
 		exit (EXIT_SUCCESS);
 	}
@@ -81,10 +81,10 @@ static int	do_fork_heredoc(t_cmd_info *cmd, int index_lim)
 	{
 		set_signal(IGN, IGN);
 		cmd->ft_in_files = ft_close(cmd->ft_in_files);
-		ret = wait_heredoc(pid);
+		ret = ft_wait_heredoc(pid);
 	}
 	set_signal(SHE, SHE);
-	trim_cmd_argv(cmd, redir_h, 2);
+	ft_command_argv_trim(cmd, redir_h, 2);
 	return (ret);
 }
 
@@ -98,14 +98,14 @@ int	heredoc(t_cmd_info *cmd)
 	while (1)
 	{
 		cur = cmd;
-		idx = check_heredoc(cur);
+		idx = ft_check_heredoc(cur);
 		if (idx == -1)
 			return (0);
 		if (cur->ft_in_files > 0)
 			ft_close(cur->ft_in_files);
-		tmp_file = get_tmp_file_name();
+		tmp_file = ft_get_tmp_file();
 		cur->ft_in_files = ft_open(tmp_file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-		exit_code = do_fork_heredoc(cur, idx);
+		exit_code = ft_fork_heredoc(cur, idx);
 		g_exit_signal_code = exit_code;
 		if (exit_code == EXIT_SUCCESS)
 			cur->ft_in_files = ft_open(tmp_file, O_RDONLY, 0664);
