@@ -1,7 +1,7 @@
 
 #include "../minishell.h"
 
-static int	is_all_number(char *str)
+static int	ft_all_number(char *str)
 {
 	while (*str)
 	{
@@ -12,7 +12,7 @@ static int	is_all_number(char *str)
 	return (1);
 }
 
-static void	exit_no_arg(t_cmd_info *cmd)
+static void	ft_exit_with_no_arg(t_cmd_info *cmd)
 {
 	int	exit_code;
 
@@ -22,14 +22,14 @@ static void	exit_no_arg(t_cmd_info *cmd)
 	exit(exit_code);
 }
 
-static void	exit_two_arg(t_cmd_info *cmd)
+static void	ft_exit_with_two_arg(t_cmd_info *cmd)
 {
 	int	exit_code;
 
 	exit_code = EXIT_SUCCESS;
 	if (cmd->prev == NULL)
 		ft_write(STDOUT_FILENO, "exit\n", 5);
-	if (!is_all_number(cmd->cmd_and_av[1]))
+	if (!ft_all_number(cmd->cmd_and_av[1]))
 	{
 		print_err3("exit", cmd->cmd_and_av[1], "numeric argument required");
 		exit_code = 255;
@@ -45,12 +45,12 @@ int	ft_exit(t_cmd_info *cmd)
 
 	exit_code = EXIT_SUCCESS;
 	if (cmd->ac == 1)
-		exit_no_arg(cmd);
+		ft_exit_with_no_arg(cmd);
 	if (cmd->ac == 2)
-		exit_two_arg(cmd);
+		ft_exit_with_two_arg(cmd);
 	if (cmd->ac > 2)
 	{
-		if (!is_all_number(cmd->cmd_and_av[1]))
+		if (!ft_all_number(cmd->cmd_and_av[1]))
 			exit_code = 255;
 		if (cmd->prev == NULL && exit_code == 255)
 		{

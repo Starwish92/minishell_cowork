@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:44:06 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 20:29:45 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/14 21:13:40 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static char	*in_pipe(char *str, int *ch_pipe, t_cmd_info **cmd, t_cmd_info *next) 
+static char	*in_pipe(char *str, int *ch_pipe, t_cmd_info **cmd, t_cmd_info *next)
 {
-	if (*ch_pipe == 1) 
+	if (*ch_pipe == 1)
 		exit_errno("argv error", "||", 1);
 	(*cmd)->ft_pipe_flag = true;
 	(*cmd)->cmd_and_av = ft_split_arg(str, ' ', &((*cmd)->ac));
-	next = ft_cmd_init(); 
+	next = ft_cmd_init();
 	(*cmd)->next = next;
 	next->prev = (*cmd);
 	(*cmd) = next;

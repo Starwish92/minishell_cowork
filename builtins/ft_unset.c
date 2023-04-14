@@ -1,7 +1,7 @@
 
 #include "../minishell.h"
 
-static void	remove_env(t_env_info *env)
+static void	ft_remove_env(t_env_info *env)
 {
 	t_env_info	*next;
 	t_env_info	*prev;
@@ -15,7 +15,7 @@ static void	remove_env(t_env_info *env)
 	free(env);
 }
 
-static int	check_valid_key_identifier(int argc, char **argv)
+static int	ft_valid_key_identifier_ch(int argc, char **argv)
 {
 	int	i;
 	int	ret;
@@ -29,11 +29,11 @@ static int	check_valid_key_identifier(int argc, char **argv)
 			print_quote_err3("unset", "", "not a valid identifier");
 			return (-1);
 		}
-		if (is_have_specific_char(argv[i], '='))
+		if (ft_specific_char_ch(argv[i], '='))
 			ret = -1;
-		else if (is_have_space(argv[i], '\0'))
+		else if (ft_space_ch(argv[i], '\0'))
 			ret = -1;
-		else if (is_all_digit(argv[i], '\0'))
+		else if (ft_only_digit(argv[i], '\0'))
 			ret = -1;
 		if (ret == -1)
 		{
@@ -52,7 +52,7 @@ static void	unset(t_env_info *info_env, char *key)
 	if (env->env_key == NULL)
 		return ;
 	else
-		remove_env(env);
+		ft_remove_env(env);
 }
 
 int	ft_unset(int argc, char **argv, t_env_info *info_env)
@@ -61,7 +61,7 @@ int	ft_unset(int argc, char **argv, t_env_info *info_env)
 
 	if (argc < 2)
 		return (EXIT_SUCCESS);
-	if (check_valid_key_identifier(argc, argv) == -1)
+	if (ft_valid_key_identifier_ch(argc, argv) == -1)
 		return (EXIT_FAILURE);
 	i = 1;
 	while (i < argc)

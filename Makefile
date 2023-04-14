@@ -3,25 +3,25 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+         #
+#    By: shane <shane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 13:03:55 by youngjpa          #+#    #+#              #
-#    Updated: 2023/04/14 20:56:35 by yuhyeongmin      ###   ########.fr        #
+#    Updated: 2023/04/14 21:13:15 by shane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
-SRCS		=	minishell.c				 \
-				testforder.c			 \
-				./parse/arg_check.c 	 \
-				./parse/ft_split_arg.c   \
-				./parse/join_string.c    \
-				./parse/parse.c 		 \
-				./parse/quotes_setting.c \
-				./parse/tokenize_util.c  \
-				./parse/tokenize.c		 \
-				./utilites/exit_errono.c \
+SRCS		=	minishell.c				\
+				testforder.c			\
+				./parse/arg_check.c 	\
+				./parse/ft_split_arg.c	\
+				./parse/join_string.c	\
+				./parse/parse.c 		\
+				./parse/quotes_setting.c\
+				./parse/tokenize_util.c		\
+				./parse/tokenize.c			\
+				./utilites/exit_errono.c	\
 				./utilites/file_open_check.c\
 				./utilites/init_and_free.c \
 				./utilites/signal_handle.c \

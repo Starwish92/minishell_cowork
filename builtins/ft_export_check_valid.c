@@ -1,7 +1,7 @@
 
 #include "../minishell.h"
 
-int	is_all_digit(char *key_value, char set)
+int	ft_only_digit(char *key_value, char set)
 {
 	while (*key_value && *key_value != set)
 	{
@@ -14,7 +14,7 @@ int	is_all_digit(char *key_value, char set)
 	return (0);
 }
 
-int	is_have_space(char *key_value, char set)
+int	ft_space_ch(char *key_value, char set)
 {
 	while (*key_value && *key_value != set)
 	{
@@ -27,7 +27,7 @@ int	is_have_space(char *key_value, char set)
 	return (1);
 }
 
-int	is_have_specific_char(char *key_value, char c)
+int	ft_specific_char_ch(char *key_value, char c)
 {
 	while (*key_value)
 	{
@@ -40,24 +40,24 @@ int	is_have_specific_char(char *key_value, char c)
 	return (1);
 }
 
-int	check_valid_identifier(int argc, char **argv)
+int	ft_valid_identifier_ch(int argc, char **argv)
 {
 	int	i;
 
 	i = 1;
 	while (i < argc)
 	{
-		if (!is_have_specific_char(argv[i], '='))
+		if (!ft_specific_char_ch(argv[i], '='))
 		{
 			print_quote_err3("export", argv[i], "not a valid identifier");
 			return (-1);
 		}
-		if (is_have_space(argv[i], '='))
+		if (ft_space_ch(argv[i], '='))
 		{
 			print_quote_err3("export", argv[i], "not a valid identifier");
 			return (-1);
 		}
-		if (is_all_digit(argv[i], '='))
+		if (ft_only_digit(argv[i], '='))
 		{
 			print_quote_err3("export", argv[i], "not a valid identifier");
 			return (-1);

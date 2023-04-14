@@ -6,7 +6,7 @@
 /*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:54:59 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/11 13:53:34 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/14 21:14:14 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char	*ft_tokenize_while_dollar(char str, char *new, t_env_info *head, int
 	env = NULL;
 	if (ft_isalnum(str) || str == '_')
 		env = ft_join_ascii(env, str);
-	else if (str == '?' && env == NULL) 
+	else if (str == '?' && env == NULL)
 	{
 		env = ft_itoa(g_exit_signal_code);
 		new = ft_strjoin_free(new, env);

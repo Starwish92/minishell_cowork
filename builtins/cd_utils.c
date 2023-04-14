@@ -2,7 +2,7 @@
 
 #include "../minishell.h"
 
-char	*ft_getcwd(char *buf, size_t size)
+char	*ft_get_cwd(char *buf, size_t size)
 {
 	char	*pwd;
 
@@ -12,22 +12,22 @@ char	*ft_getcwd(char *buf, size_t size)
 	return (pwd);
 }
 
-char	*get_pwd_key_value(const char *key)
+char	*get_env_pwd(const char *key)
 {
 	char	*tmp;
 	char	*pwd_key_value;
 
-	tmp = ft_getcwd(NULL, 0);
+	tmp = ft_get_cwd(NULL, 0);
 	pwd_key_value = ft_strjoin(key, tmp);
 	free(tmp);
 	return (pwd_key_value);
 }
 
-void	export_pwd(const char *pwd, t_env_info *env_head)
+void	get_pwd(const char *pwd, t_env_info *env_head)
 {
 	char	*tmp_pwd;
 
-	tmp_pwd = get_pwd_key_value(pwd);
-	export_key_value(env_head, tmp_pwd);
+	tmp_pwd = get_env_pwd(pwd);
+	ft_export_val(env_head, tmp_pwd);
 	free(tmp_pwd);
 }

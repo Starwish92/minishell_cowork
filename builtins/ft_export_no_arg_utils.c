@@ -1,7 +1,7 @@
 
 #include "../minishell.h"
 
-static void	swap_env(t_env_info *env1, t_env_info *env2)
+static void	ft_swap_env(t_env_info *env1, t_env_info *env2)
 {
 	char	*tmp_k;
 	char	*tmp_v;
@@ -14,7 +14,7 @@ static void	swap_env(t_env_info *env1, t_env_info *env2)
 	env2->env_val = tmp_v;
 }
 
-static t_env_info	*dup_env(t_env_info *cur)
+static t_env_info	*ft_dup_env(t_env_info *cur)
 {
 	t_env_info	*new;
 
@@ -36,30 +36,30 @@ static t_env_info	*dup_env(t_env_info *cur)
 	return (new);
 }
 
-t_env_info	*dup_env_list(t_env_info *cur)
+t_env_info	*ft_dup_env_list(t_env_info *cur)
 {
 	t_env_info	*ret;
 	t_env_info	*new;
 	t_env_info	*tmp;
 
-	ret = dup_env(cur);
+	ret = ft_dup_env(cur);
 	tmp = ret;
 	cur = cur->next;
 	while (cur->env_key)
 	{
-		new = dup_env(cur);
+		new = ft_dup_env(cur);
 		tmp->next = new;
 		new->prev = tmp;
 		tmp = new;
 		cur = cur->next;
 	}
-	new = dup_env(NULL);
+	new = ft_dup_env(NULL);
 	tmp->next = new;
 	new->prev = tmp;
 	return (ret);
 }
 
-t_env_info	*sort_env_list(t_env_info *head)
+t_env_info	*ft_sort_env_list(t_env_info *head)
 {
 	t_env_info	*cur;
 
@@ -68,7 +68,7 @@ t_env_info	*sort_env_list(t_env_info *head)
 	{
 		if (ft_strcmp(cur->env_key, cur->next->env_key) > 0)
 		{
-			swap_env(cur, cur->next);
+			ft_swap_env(cur, cur->next);
 			cur = head;
 		}
 		else
@@ -77,7 +77,7 @@ t_env_info	*sort_env_list(t_env_info *head)
 	return (head);
 }
 
-void	free_env_list(t_env_info *info_env)
+void	ft_free_env_list(t_env_info *info_env)
 {
 	t_env_info	*next;
 

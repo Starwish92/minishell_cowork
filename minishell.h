@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 20:54:58 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/14 21:09:29 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int			ft_close(int fd);
 void		*ft_malloc(size_t size, size_t n);
 int			ft_write(int fd, const void *buf, size_t byte);
 void		ft_execve(const char *file, char *const *argv, char *const *envp);
-char		*ft_getcwd(char *buf, size_t size);
+char		*ft_get_cwd(char *buf, size_t size);
 
 int			is_exist_file(char *tmp_file_name);
 void		exit_errno(char *str1, char *str2, int exit_code);
@@ -195,18 +195,18 @@ int		ft_env(t_env_info *info_env);
 int		ft_echo(int argc, char **argv);
 int		ft_exit(t_cmd_info *cmd);
 int		ft_unset(int argc, char **argv, t_env_info *info_env);
-t_env_info	*dup_env_list(t_env_info *cur);
-t_env_info	*sort_env_list(t_env_info *head);
-void	free_env_list(t_env_info *env);
-char	*get_pwd_key_value(const char *key);
-void	export_pwd(const char *pwd, t_env_info *info_env);
+t_env_info	*ft_dup_env_list(t_env_info *cur);
+t_env_info	*ft_sort_env_list(t_env_info *head);
+void	ft_free_env_list(t_env_info *env);
+char	*get_env_pwd(const char *key);
+void	get_pwd(const char *pwd, t_env_info *info_env);
 
 int		ft_export(int argc, char **argv, t_env_info *info_env);
-void	export_key_value(t_env_info *info_env, char *key_value);
-int		check_valid_identifier(int argc, char **argv);
-int		is_all_digit(char *key_value, char set);
-int		is_have_space(char *key_value, char set);
-int		is_have_specific_char(char *key_value, char c);
+void	ft_export_val(t_env_info *info_env, char *key_value);
+int		ft_valid_identifier_ch(int argc, char **argv);
+int		ft_only_digit(char *key_value, char set);
+int		ft_space_ch(char *key_value, char set);
+int		ft_specific_char_ch(char *key_value, char c);
 
 int		init_env_list(t_env_info *cur, char **envp);
 t_env_info	*new_env(char *key_value);
