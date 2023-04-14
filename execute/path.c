@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:01:41 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/13 14:47:30 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/14 17:12:03 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ static int	check_relative(char *str)
 
 	i = 0;
 	ret = 0;
+	if (ft_strcmp(str, "~\\,./'`"))
+		return 0;
 	while (!ft_isalnum(str[i]))
 	{
 		if (str[i] == '.' || str[i] == '/')
