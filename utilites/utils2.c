@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:57:48 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 16:03:56 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/07 17:46:11 by youngjpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
+int	ft_isdigit(int c)
+{
+	return ('0' <= c && c <= '9');
+}
 
 int	ft_isspace(char c)
 {

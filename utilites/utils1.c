@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:57:38 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:47:32 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:48:46 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,20 @@ int	ft_atoi(const char *str)
 	return (sign * ret);
 }
 
+int	ft_str_isspace(char *str)
+{
+	while (*str)
+	{
+		if (*str != 32 && !(*str >= 9 && *str <= 13))
+			return (0);
+		str++;
+	}
+	return (1);
+}
+
 int	ft_isalpha(int c)
 {
 	return (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'));
-	// return (('A' <= c && c <= 'Z'));
-}
-
-int	ft_isdigit(int c)
-{
-	return ('0' <= c && c <= '9');
 }
 
 int	ft_isalnum(int c)

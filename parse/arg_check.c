@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arg_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:53:06 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:15:12 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/10 19:46:03 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,36 @@ static void	first(t_cmd_info *tmp, t_cmd_info **ptr, t_cmd_info **head)
 {
 	tmp = (*ptr)->next;
 	tmp->prev = NULL;
-	(*head)->cmd_and_av = ft_frees((*head)->cmd_and_av);
-	*head = ft_frees((*head));
+	(*head)->cmd_and_av = ft_free((*head)->cmd_and_av);
+	*head = ft_free((*head));
 	*head = tmp;
 	*ptr = tmp;
 }
 
-void	argc_checker(t_cmd_info **cmd)
+void	ft_arg_check(t_cmd_info **cmd)
 {
-	t_cmd_info	*ptr;
-	t_cmd_info	*tmp;
+	t_cmd_info	*cur;
+	t_cmd_info	*temp;
 
-	tmp = NULL;
-	ptr = *cmd;
-	while (ptr)
+	cur = *cmd;
+	temp = NULL;
+	while (cur)
 	{
-		if (ptr->prev == NULL && ptr->next == NULL)
+		if (cur->prev == NULL && cur->next == NULL)
 			return ;
-		if (ptr->ac == 0 && ptr->prev == NULL)
-			first(tmp, &ptr, cmd);
-		else if (ptr->ac == 0)
+		if (cur->ac == 0 && cur->prev == NULL && cur->ft_pipe_flag == 0)
+			first(temp, &cur, cmd);
+		else if (cur->ac == 0 && cur->ft_pipe_flag == 0)
 		{
-			tmp = ptr->prev;
-			tmp->next = ptr->next;
-			ptr->cmd_and_av = ft_frees(ptr->cmd_and_av);
-			ptr = ft_frees(ptr);
-			ptr = tmp->next;
-			if (ptr)
-				ptr->prev = tmp;
+			temp = cur->prev;
+			temp->next = cur->next;
+			cur->cmd_and_av = ft_free(cur->cmd_and_av);
+			cur = ft_free(cur);
+			cur = temp->next;
+			if (cur)
+				cur->prev = temp;
 		}
 		else
-			ptr = ptr->next;
+			cur = cur->next;
 	}
 }

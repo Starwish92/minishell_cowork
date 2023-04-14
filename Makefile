@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+         #
+#    By: shane <shane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 13:03:55 by youngjpa          #+#    #+#              #
-#    Updated: 2023/04/07 16:28:32 by yuhyeongmin      ###   ########.fr        #
+#    Updated: 2023/04/14 16:04:34 by shane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 SRCS		=	minishell.c				 \
+				testforder.c			 \
 				./parse/arg_check.c 	 \
 				./parse/ft_split_arg.c   \
 				./parse/join_string.c    \
@@ -24,23 +25,43 @@ SRCS		=	minishell.c				 \
 				./utilites/file_open_check.c\
 				./utilites/init_and_free.c \
 				./utilites/signal_handle.c \
-				./utilites/systemcall1.c \
 				./utilites/systemcall2.c \
 				./utilites/utils1.c \
 				./utilites/utils2.c \
 				./utilites/utils3.c \
 				./utilites/utils4.c \
 				./utilites/utils5.c \
-				./testforder.c \
+				./env/env_utils.c	\
+				./env/env_utils2.c	\
+				./execute/execute.c	\
+				./execute/check_valid_syntex.c\
+				./execute/close_unused_fd.c\
+				./execute/execute_utils.c\
+				./execute/heredoc.c\
+				./execute/init_and_clear_cmd.c\
+				./execute/io_file_open.c\
+				./execute/path.c\
+				./execute/redirection.c\
+				./execute/tmp_file.c\
+				./execute/wait_child.c\
+				./builtins/cd_utils.c\
+				./builtins/ft_cd.c\
+				./builtins/ft_env.c\
+				./builtins/ft_exit.c\
+				./builtins/ft_export_check_valid.c\
+				./builtins/ft_export_no_arg_utils.c\
+				./builtins/ft_export.c\
+				./builtins/ft_getenv.c\
+				./builtins/ft_pwd.c\
+				./builtins/ft_unset.c\
 
 OBJS		= $(SRCS:%.c=%.o)
 
-CC = gcc $(DEBUG)
+SAN = -fsanitize=address -g3
+DEBUG = -g
+CC = gcc $(DEBUG) $(SAN)
 CFLAGS = 
 #-Werror -Wall -Wextra
-
-# SAN = -fsanitize=address -g3
-DEBUG = -g
 READLINE_LIB 	= -lreadline -L/opt/homebrew/opt/readline/lib
 READLINE_INC	= -I/opt/homebrew/opt/readline/include
 # READLINE_LIB 	= -lreadline -L${HOME}/.brew/opt/readline/lib
@@ -66,34 +87,3 @@ fclean		:	clean
 re			:	fclean all
 
 .PHONY		:	all clean fclean re bonus
-
-
-# int	is_whitespace(char *line);
-# void	main_init(int argc, char *argv[]);
-# int	main(int argc, char *argv[], char *envp[]);
-# #parse
-# static void	first(t_cmd_info *tmp, t_cmd_info **ptr, t_cmd_info **head);
-# void	argc_checker(t_cmd_info **cmd);
-
-# static void	*is_free(char **str, int str_index);
-# static int	get_word_cnt(char const *str, char c);
-# static char	**set_worddup(char const *s, char c, char **mem);
-# char	**ft_split_argc(char const *s, char c, int *argc);
-
-# char	*ft_strjoin_char(char *s1, char s2);
-
-# static char	*parse_in_pipe(char *str, int *pipe, t_cmd_info **cmd, t_cmd_info *next);
-# static char	*add_redirect_space(char *str, char *line, char c);
-# static char	*parse_out_pipe(char *str, char *line, int quotes, int *pipe);
-# void	parse(char *line, t_cmd_info *cmd);
-
-# int	parse_set_quotes(char line, int quotes, t_cmd_info *cmd);
-# char	*ft_strjoin_free(char *s1, char *s2);
-# void	delete_argv(t_cmd_info *cmd, int *i);
-# void	argv_change(t_cmd_info *cmd, char *new, int i);
-
-# static char	*replace_while_dollar(char str, char *new, t_info_env *head, int quotes);
-# static char	*replace_while_else(char c, char *new, int quotes);
-# static int	dollar_check(char c);
-# static char	*replace_while(t_cmd_info *cmd, t_info_env *head, int i);
-# void	replace(t_cmd_info *cmd, t_info_env *head);

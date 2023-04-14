@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:58:06 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:47:44 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/11 20:09:23 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,8 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (*s)
-	{
-		++i;
-		++s;
-	}
+	while (s[i])
+		i++;
 	return (i);
 }
 

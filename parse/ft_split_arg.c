@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_arg.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youngjpa <youngjpa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:51:31 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/07 15:50:41 by youngjpa         ###   ########.fr       */
+/*   Updated: 2023/04/10 11:17:31 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ static void	*is_free(char **str, int str_index)
 static int	get_word_cnt(char const *str, char c)
 {
 	size_t	count;
-	int		chker;
+	int		checker;
 
 	count = 0;
-	chker = 1;
+	checker = 1;
 	while (*str != '\0' && *str == c)
 		str++;
 	while (*str)
 	{
-		if (chker == 1 && *str != c)
+		if (checker == 1 && *str != c)
 		{
 			count++;
-			chker = 0;
+			checker = 0;
 		}
 		if (*str == c)
-			chker = 1;
+			checker = 1;
 		str++;
 	}
 	return (count);
@@ -75,20 +75,15 @@ static char	**set_worddup(char const *s, char c, char **mem)
 	return (mem);
 }
 
-char	**ft_split_argc(char const *s, char c, int *argc)
+char	**ft_split_arg(char const *s, char c, int *argc)
 {
 	char	**new_mem;
 
-	new_mem = NULL;
 	if (!s)
 		return (NULL);
+	new_mem = NULL;
 	*argc = get_word_cnt(s, c);
 	new_mem = (char **)malloc(sizeof(char *) * (*argc + 1));
-	// int i = 0;
-	// while (i < *argc)
-	// {
-	// 	printf("%s\n", )
-	// }
 	if (!new_mem)
 		return (NULL);
 	new_mem = set_worddup(s, c, new_mem);
