@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+         #
+#    By: shane <shane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 13:03:55 by youngjpa          #+#    #+#              #
-#    Updated: 2023/04/14 16:46:03 by yuhyeongmin      ###   ########.fr        #
+#    Updated: 2023/04/14 20:06:28 by shane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS		=	minishell.c				 \
 				./utilites/file_open_check.c\
 				./utilites/init_and_free.c \
 				./utilites/signal_handle.c \
+				./utilites/systemcall1.c \
 				./utilites/systemcall2.c \
 				./utilites/utils1.c \
 				./utilites/utils2.c \

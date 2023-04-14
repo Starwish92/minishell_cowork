@@ -6,7 +6,7 @@
 /*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 16:05:23 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/14 20:09:22 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,12 @@ int			ft_isspace(char c);
 
 char		*ft_strchr(const char *s, int c);
 
-int			ft_open(char *fname, int oflag, int mode);
-int			ft_close(int fd);
 void		ft_dup2(int fd1, int fd2);
 void		ft_pipe(int *fds);
 pid_t		ft_fork(void);
+
+int			ft_open(char *fname, int oflag, int mode);
+int			ft_close(int fd);
 void		*ft_malloc(size_t size, size_t n);
 int			ft_write(int fd, const void *buf, size_t byte);
 void		ft_execve(const char *file, char *const *argv, char *const *envp);
