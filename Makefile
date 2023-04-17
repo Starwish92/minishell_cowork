@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+         #
+#    By: shane <shane@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 13:03:55 by youngjpa          #+#    #+#              #
-#    Updated: 2023/04/17 16:29:36 by yuhyeongmin      ###   ########.fr        #
+#    Updated: 2023/04/17 19:09:59 by shane            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS		=	minishell.c				\
 				./env/env_utils.c	\
 				./env/env_utils2.c	\
 				./execute/execute.c	\
+				./execute/execute1.c	\
 				./execute/ft_valid_token.c\
 				./execute/ft_exec_utils.c\
 				./execute/ft_heredoc.c\

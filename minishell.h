@@ -6,7 +6,7 @@
 /*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 19:02:00 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/17 19:10:17 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,6 +209,8 @@ void	ft_minishell(char *input, t_cmd_info *cmd, t_env_info info_env);
 char	*get_env_key2(char *key_value);
 char	*get_env_value2(void);
 
+static char	**get_envp(t_env_info *head);
+void	ft_execve(const char *file, char *const *argv, char *const *envp);
+
 
 #endif
-
