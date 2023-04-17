@@ -3,14 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   env_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:16:32 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/13 19:09:41 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/17 16:16:44 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
+
+char	*get_env_key2(char *key_value)
+{
+	char	*temp;
+	size_t	len;
+	size_t	i;
+
+	len = ft_strlen(key_value);
+	temp = (char *)ft_malloc(sizeof(char), len + 1);
+	i = 0;
+	while (i < len)
+	{
+		temp[i] = key_value[i];
+		++i;
+	}
+	temp[i] = 0;
+	return (temp);
+}
 
 char	*get_env_key(char *key_value)
 {
@@ -31,6 +49,14 @@ char	*get_env_key(char *key_value)
 		++i;
 	}
 	temp[i] = 0;
+	return (temp);
+}
+
+char	*get_env_value2(char *key_value)
+{
+	char	*temp;
+
+	temp = "don't_print_this";
 	return (temp);
 }
 
