@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 16:00:24 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/17 16:30:35 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,19 +108,12 @@ void		set_signal(int sig_int, int sig_quit);
 
 int			ft_str_isspace(char *str);
 void		ft_main_init(int argc, char **argv);
-static void	first(t_cmd_info *tmp, t_cmd_info **ptr, t_cmd_info **head);
 void		ft_arg_check(t_cmd_info **cmd);
 
-static void	*is_free(char **str, int str_index);
-static int	get_word_cnt(char const *str, char c);
-static char	**set_worddup(char const *s, char c, char **mem);
 char		**ft_split_arg(char const *s, char c, int *argc);
 
 char		*ft_join_ascii(char *s1, char s2);
 
-static char	*in_pipe(char *str, int *ch_pipe, t_cmd_info **cmd, t_cmd_info *next);
-static char	*add_redirect_space(char *str, char *input, char c);
-static char	*out_pipe(char *str, int *ch_pipe, char *input, int ch_quote);
 void		ft_parse(char *input, t_cmd_info *cmd);
 
 int			set_quotes(char str, int ch_quotes, t_cmd_info *cmd);
@@ -128,10 +121,6 @@ char		*ft_strjoin_free(char *s1, char *s2);
 void		ft_del_argv(t_cmd_info *cmd, int *i);
 void		ft_change_argv(t_cmd_info *cmd, char *new, int i);
 
-static char	*ft_tokenize_while_dollar(char str, char *new, t_env_info *head, int quotes);
-static char	*ft_tokenize_while_else(char c, char *new, int quotes);
-static int	dollar_check(char c);
-static char	*ft_tokenize_while(t_cmd_info *cmd, t_env_info *head, int i);
 void		ft_tokenize(t_cmd_info *cmd, t_env_info *head);
 
 int			ft_env_init(t_env_info *info_env, char **envp);
@@ -142,12 +131,6 @@ char		*get_env_key(char *key_value);
 
 char	*ft_getenv(t_env_info *info_env, char *key);
 
-
-static char	**get_envp(t_env_info *head);
-static int	os_builtins(t_cmd_info *cmd, t_env_info *info_env);
-static int	execute_cmd(t_cmd_info *cmd, t_env_info *info_env);
-static void	do_fork_cmd(t_cmd_info *cmd, t_env_info *info_env);
-static void	do_cmd(t_cmd_info *cmd, t_env_info *info_env);
 
 void	execute(t_cmd_info *cmd, t_env_info *info_env);
 void	ft_redirect(t_cmd_info *cmd);
@@ -176,7 +159,7 @@ pid_t	ft_fork(void);
 
 
 int ft_is_only_key(char *argv);
-char	*get_env_value2(char *key_value);
+char	*get_env_value2(void);
 char	*get_env_key2(char *key_value);
 
 

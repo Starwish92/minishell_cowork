@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:16:32 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/17 16:16:44 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/17 16:30:32 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ char	*get_env_key(char *key_value)
 	return (temp);
 }
 
-char	*get_env_value2(char *key_value)
+char	*get_env_value2(void)
 {
 	char	*temp;
-
+	
 	temp = "don't_print_this";
 	return (temp);
 }

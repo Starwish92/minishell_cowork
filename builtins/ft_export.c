@@ -61,7 +61,7 @@ void	ft_export_val(t_env_info *info_env, char *key_value)
 	if (ft_is_only_key(key_value))
 	{
 		key = get_env_key2(key_value);
-		value = get_env_value2(key_value);
+		value = get_env_value2();
 	}
 	else
 	{

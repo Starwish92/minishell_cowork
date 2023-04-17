@@ -3,17 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: shane <shane@student.42.fr>                +#+  +:+       +#+         #
+#    By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 13:03:55 by youngjpa          #+#    #+#              #
-#    Updated: 2023/04/14 21:13:15 by shane            ###   ########.fr        #
+#    Updated: 2023/04/17 16:29:36 by yuhyeongmin      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 SRCS		=	minishell.c				\
-				testforder.c			\
 				./parse/arg_check.c 	\
 				./parse/ft_split_arg.c	\
 				./parse/join_string.c	\
@@ -59,8 +58,7 @@ OBJS		= $(SRCS:%.c=%.o)
 SAN = -fsanitize=address -g3
 DEBUG = -g
 CC = gcc $(DEBUG) $(SAN)
-CFLAGS = 
-#-Werror -Wall -Wextra
+CFLAGS = -Werror -Wall -Wextra
 READLINE_LIB 	= -lreadline -L/opt/homebrew/opt/readline/lib
 READLINE_INC	= -I/opt/homebrew/opt/readline/include
 # READLINE_LIB 	= -lreadline -L${HOME}/.brew/opt/readline/lib
