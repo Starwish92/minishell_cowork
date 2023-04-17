@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 17:39:13 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/17 18:54:59 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,6 +202,8 @@ char	*get_env_key(char *key_value);
 char	*get_env_value(char *key_value);
 t_env_info	*compare_env_key(t_env_info *info_env, char *key);
 char	*ft_getenv(t_env_info *info_env, char *key);
+
+void	ft_minishell(char *input, t_cmd_info *cmd, t_env_info info_env);
 
 
 #endif
