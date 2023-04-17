@@ -6,13 +6,14 @@
 /*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:44:06 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 21:13:40 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/17 18:47:32 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static char	*in_pipe(char *str, int *ch_pipe, t_cmd_info **cmd, t_cmd_info *next)
+static char	*in_pipe(char *str, int *ch_pipe, \
+	t_cmd_info **cmd, t_cmd_info *next)
 {
 	if (*ch_pipe == 1)
 		exit_errno("argv error", "||", 1);
@@ -75,9 +76,9 @@ static char	*out_pipe(char *str, int *ch_pipe, char *input, int ch_quote)
 void	ft_parse(char *input, t_cmd_info *cmd)
 {
 	t_cmd_info	*next;
-	char	*str;
-	int		ch_quote;
-	int		ch_pipe;
+	char		*str;
+	int			ch_quote;
+	int			ch_pipe;
 
 	next = NULL;
 	str = NULL;
