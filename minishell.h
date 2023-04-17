@@ -6,7 +6,7 @@
 /*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 19:10:17 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/17 19:16:22 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_env_info
 
 void		print_checker(t_cmd_info *cmd, t_env_info *env);
 
+void	ft_execve(const char *file, char *const *argv, char *const *envp);
 void		*ft_free(void *ptr);
 t_cmd_info	*ft_cmd_init(void);
 void		ft_free_list(t_cmd_info *cmd);
@@ -133,6 +134,9 @@ char	*ft_getenv(t_env_info *info_env, char *key);
 
 
 void	execute(t_cmd_info *cmd, t_env_info *info_env);
+void	ft_execve(const char *file, char *const *argv, char *const *envp);
+
+
 void	ft_redirect(t_cmd_info *cmd);
 int		heredoc(t_cmd_info *cmd);
 void	ft_close_not_use_fd(t_cmd_info *cmd, pid_t pid);
@@ -209,8 +213,6 @@ void	ft_minishell(char *input, t_cmd_info *cmd, t_env_info info_env);
 char	*get_env_key2(char *key_value);
 char	*get_env_value2(void);
 
-static char	**get_envp(t_env_info *head);
-void	ft_execve(const char *file, char *const *argv, char *const *envp);
 
 
 #endif
