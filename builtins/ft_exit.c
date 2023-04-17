@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: y	uhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 20:09:13 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/17 21:51:37 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/18 01:22:03 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,20 @@ static void	ft_exit_with_no_arg(t_cmd_info *cmd)
 
 static void	ft_exit_with_two_arg(t_cmd_info *cmd)
 {
-	int	exit_code;
-	long long check;
+	unsigned long long	check;
+	int					exit_code;
+	int					sign;
 
-	check = ft_atoi(cmd->cmd_and_av[1]);
+	sign = 1;
+	check = ft_atoi_ll(cmd->cmd_and_av[1], &sign);
 	exit_code = EXIT_SUCCESS;
 	if (cmd->prev == NULL)
 		ft_write(STDOUT_FILENO, "exit\n", 5);
-	if (ft_strlen(cmd->cmd_and_av[1]) > 19)
+	if ((check > 9223372036854775807 && sign == 1) || \
+		(check - 9223372036854775807 > 1 + 1 && sign == -1))
 	{
 		print_err3("exit", cmd->cmd_and_av[1], "numeric argument required");
 		exit_code = 255;
-		exit(exit_code);
-	}
-	if (check > -1)
-	{
-		print_err3("exit", cmd->cmd_and_av[1], "numeric argument required");
-		exit_code = 255;
-		exit(exit_code);
 	}
 	else if (!ft_all_number(cmd->cmd_and_av[1]))
 	{
