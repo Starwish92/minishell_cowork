@@ -6,7 +6,7 @@
 /*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 18:54:59 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/17 19:02:00 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,6 +204,10 @@ t_env_info	*compare_env_key(t_env_info *info_env, char *key);
 char	*ft_getenv(t_env_info *info_env, char *key);
 
 void	ft_minishell(char *input, t_cmd_info *cmd, t_env_info info_env);
+
+
+char	*get_env_key2(char *key_value);
+char	*get_env_value2(void);
 
 
 #endif

@@ -1,5 +1,30 @@
-
 #include "../minishell.h"
+
+char	*get_env_key2(char *key_value)
+{
+	char	*temp;
+	size_t	len;
+	size_t	i;
+
+	len = ft_strlen(key_value);
+	temp = (char *)ft_malloc(sizeof(char), len + 1);
+	i = 0;
+	while (i < len)
+	{
+		temp[i] = key_value[i];
+		++i;
+	}
+	temp[i] = 0;
+	return (temp);
+}
+
+char	*get_env_value2(void)
+{
+	char	*temp;
+
+	temp = ft_strdup("don't_print_this");
+	return (temp);
+}
 
 t_env_info	*compare_env_key(t_env_info *info_env, char *key)
 {
