@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:03:41 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 17:43:51 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/17 18:42:31 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,15 @@ void	ft_pica_shell(void)
 	printf("⬜⬜⬜⬜⬜⬜⬛🟨🟨🟨🟨🟨⬛⬛⬛⬛⬛⬛⬛⬛🟨🟨🟨🟨🟨⬛⬜⬜⬜⬜⬜ youngjpa\n\n");
 }
 
-
-int	main(int argc, char **argv, char **envp)
+void	ft_minishell(char *input, t_cmd_info *cmd, t_env_info info_env)
 {
-	struct termios		term_sig;
-	char				*input;
-	t_cmd_info			*cmd;
-	t_env_info			info_env;
-	
-	tcgetattr(STDIN_FILENO, &term_sig);
-	ft_main_init(argc, argv);
-	ft_env_init(&info_env, envp);
 	while (42)
 	{
 		input = readline("\033[33mminishell $ \033[0m");
-		if (!input) 
+		if (!input)
 			break ;
 		if (*input != '\0')
-			add_history(input); 
+			add_history(input);
 		if (*input != '\0' && !ft_str_isspace(input))
 		{
 			cmd = ft_cmd_init();
@@ -86,6 +77,20 @@ int	main(int argc, char **argv, char **envp)
 		}
 		free(input);
 	}
-	tcsetattr(STDIN_FILENO, TCSANOW, &term_sig);
 }
 
+int	main(int argc, char **argv, char **envp)
+{
+	struct termios		term_sig;
+	char				*input;
+	t_cmd_info			*cmd;
+	t_env_info			info_env;
+
+	input = NULL;
+	cmd = NULL;
+	tcgetattr(STDIN_FILENO, &term_sig);
+	ft_main_init(argc, argv);
+	ft_env_init(&info_env, envp);
+	ft_minishell(input, cmd, info_env);
+	tcsetattr(STDIN_FILENO, TCSANOW, &term_sig);
+}
