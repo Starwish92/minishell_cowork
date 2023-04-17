@@ -49,6 +49,7 @@ void	ft_export_val(t_env_info *info_env, char *key_value)
 	char	*key;
 	char	*value;
 
+	printf("%s\n", key_value);
 	key = get_env_key(key_value);
 	value = get_env_value(key_value);
 	env = compare_env_key(info_env, key);
@@ -65,6 +66,7 @@ int	ft_export(int argc, char **argv, t_env_info *info_env)
 	int	exit_code;
 
 	exit_code = EXIT_SUCCESS;
+	// printf("%d\n", argc);
 	if (ft_valid_identifier_ch(argc, argv) == -1)
 		exit_code = EXIT_FAILURE;
 	else if (argc == 1)
