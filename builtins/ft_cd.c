@@ -5,7 +5,7 @@ static int	ft_home_directory(char *path, t_env_info *info_env)
 {
 	int		exit_code;
 	char	*home;
-	char	*tmp_pwd;
+	char	*tmp_workgin_dir;
 
 	exit_code = EXIT_FAILURE;
 	home = ft_getenv(info_env, "HOME");
@@ -13,13 +13,13 @@ static int	ft_home_directory(char *path, t_env_info *info_env)
 		print_err2("cd", "home not set");
 	else
 	{
-		tmp_pwd = get_env_pwd("OLDPWD=");
+		tmp_workgin_dir = get_env_pwd("OLDPWD=");
 		exit_code = chdir(home);
 		if (exit_code == -1)
 			print_err3("cd", path, strerror(errno));
 		else
-			ft_export_val(info_env, tmp_pwd);
-		free(tmp_pwd);
+			ft_export_val(info_env, tmp_workgin_dir);
+		free(tmp_workgin_dir);
 	}
 	if (exit_code != -1)
 		get_pwd("PWD=", info_env);

@@ -3,11 +3,11 @@
 
 static void	ft_add_env(t_env_info *env, char *key, char *value)
 {
-	t_env_info	*new;
+	t_env_info	*new_env_lst;
 
-	new = new_env(NULL);
-	new->prev = env;
-	env->next = new;
+	new_env_lst = new_env(NULL);
+	new_env_lst->prev = env;
+	env->next = new_env_lst;
 	env->env_key = key;
 	env->env_val = value;
 	return ;
@@ -21,13 +21,13 @@ static void	ft_change_env(t_env_info *env, char *key, char *value)
 	return ;
 }
 
-static int	ft_export_with_no_arg(t_env_info *env_head)
+static int	ft_export_with_no_arg(t_env_info *info_env)
 {
 	t_env_info	*tmp;
 	t_env_info	*sorted_env;
 	t_env_info	*cur;
 
-	tmp = ft_dup_env_list(env_head);
+	tmp = ft_dup_env_list(info_env);
 	sorted_env = ft_sort_env_list(tmp);
 	cur = sorted_env;
 	while (cur->env_key)
@@ -43,7 +43,7 @@ static int	ft_export_with_no_arg(t_env_info *env_head)
 	return (EXIT_SUCCESS);
 }
 
-void	ft_export_val(t_env_info *env_head, char *key_value)
+void	ft_export_val(t_env_info *info_env, char *key_value)
 {
 	t_env_info	*env;
 	char	*key;
@@ -51,7 +51,7 @@ void	ft_export_val(t_env_info *env_head, char *key_value)
 
 	key = get_env_key(key_value);
 	value = get_env_value(key_value);
-	env = compare_env_key(env_head, key);
+	env = compare_env_key(info_env, key);
 	if (env->env_key != NULL)
 		ft_change_env(env, key, value);
 	else
@@ -59,7 +59,7 @@ void	ft_export_val(t_env_info *env_head, char *key_value)
 	return ;
 }
 
-int	ft_export(int argc, char *argv[], t_env_info *env_head)
+int	ft_export(int argc, char **argv, t_env_info *info_env)
 {
 	int	i;
 	int	exit_code;
@@ -68,13 +68,13 @@ int	ft_export(int argc, char *argv[], t_env_info *env_head)
 	if (ft_valid_identifier_ch(argc, argv) == -1)
 		exit_code = EXIT_FAILURE;
 	else if (argc == 1)
-		exit_code = ft_export_with_no_arg(env_head);
+		exit_code = ft_export_with_no_arg(info_env);
 	else
 	{
 		i = 1;
 		while (i < argc)
 		{
-			ft_export_val(env_head, argv[i]);
+			ft_export_val(info_env, argv[i]);
 			++i;
 		}
 	}

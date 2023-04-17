@@ -1,4 +1,5 @@
 
+
 #include "../minishell.h"
 
 static void	ft_remove_env(t_env_info *env)

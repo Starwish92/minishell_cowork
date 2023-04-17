@@ -15,7 +15,7 @@ static int	ft_option_ch(char *str)
 	return (1);
 }
 
-static int	ft_option_ch_n(int argc, char **argv, int *idx)
+static int	ft_option_ch_n(int argc, char **argv, int *index)
 {
 	int	i;
 	int	option_n;
@@ -27,23 +27,23 @@ static int	ft_option_ch_n(int argc, char **argv, int *idx)
 	option_n = ft_option_ch(argv[i]);
 	while (i < argc && ft_option_ch(argv[i]))
 		++i;
-	*idx = i;
+	*index = i;
 	return (option_n);
 }
 
 int	ft_echo(int argc, char **argv)
 {
-	int	idx;
+	int	index;
 	int	option_n;
 
-	idx = 1;
-	option_n = ft_option_ch_n(argc, argv, &idx);
-	while (idx < argc && argv[idx])
+	index = 1;
+	option_n = ft_option_ch_n(argc, argv, &index);
+	while (index < argc && argv[index])
 	{
-		ft_write(STDOUT_FILENO, argv[idx], ft_strlen(argv[idx]));
-		if (idx + 1 != argc)
+		ft_write(STDOUT_FILENO, argv[index], ft_strlen(argv[index]));
+		if (index + 1 != argc)
 			ft_write(STDOUT_FILENO, " ", 1);
-		++idx;
+		++index;
 	}
 	if (option_n == 0)
 		ft_write(STDOUT_FILENO, "\n", 1);

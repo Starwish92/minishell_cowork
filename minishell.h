@@ -6,7 +6,7 @@
 /*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 21:09:29 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/17 11:23:10 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,7 +198,7 @@ int		ft_unset(int argc, char **argv, t_env_info *info_env);
 t_env_info	*ft_dup_env_list(t_env_info *cur);
 t_env_info	*ft_sort_env_list(t_env_info *head);
 void	ft_free_env_list(t_env_info *env);
-char	*get_env_pwd(const char *key);
+char	*get_env_pwd(const char *pwd_val);
 void	get_pwd(const char *pwd, t_env_info *info_env);
 
 int		ft_export(int argc, char **argv, t_env_info *info_env);

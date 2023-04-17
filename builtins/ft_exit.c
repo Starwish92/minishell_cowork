@@ -46,9 +46,9 @@ int	ft_exit(t_cmd_info *cmd)
 	exit_code = EXIT_SUCCESS;
 	if (cmd->ac == 1)
 		ft_exit_with_no_arg(cmd);
-	if (cmd->ac == 2)
+	else if (cmd->ac == 2)
 		ft_exit_with_two_arg(cmd);
-	if (cmd->ac > 2)
+	else if (cmd->ac > 2)
 	{
 		if (!ft_all_number(cmd->cmd_and_av[1]))
 			exit_code = 255;
