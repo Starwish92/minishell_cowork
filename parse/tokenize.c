@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   tokenize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:54:59 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 18:47:01 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/17 20:24:33 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
 static char	*ft_tokenize_while_dollar(char str, char *new, \
-		t_env_info *head, int quotes)
+		t_env_info *info_env, int quotes)
 {
 	static char	*env;
 
@@ -30,7 +30,7 @@ static char	*ft_tokenize_while_dollar(char str, char *new, \
 	{
 		if (env != NULL)
 		{
-			new = ft_strjoin_free(new, ft_getenv(head, env));
+			new = ft_strjoin_free(new, ft_getenv(info_env, env));
 			if (!(str == '\"' && quotes != 1) && !(str == '\'' && quotes != 2))
 				new = ft_join_ascii(new, str);
 			env = ft_free(env);
@@ -64,7 +64,7 @@ static int	dollar_check(char c)
 		return (0);
 }
 
-static char	*ft_tokenize_while(t_cmd_info *cmd, t_env_info *head, int i)
+static char	*ft_tokenize_while(t_cmd_info *cmd, t_env_info *info_env, int i)
 {
 	char	*new;
 	int		j;
@@ -83,7 +83,7 @@ static char	*ft_tokenize_while(t_cmd_info *cmd, t_env_info *head, int i)
 		else if (ch_dollar == 1)
 		{
 			new = ft_tokenize_while_dollar(cmd->cmd_and_av[i][j], \
-				new, head, ch_quote);
+				new, info_env, ch_quote);
 			ch_dollar = dollar_check(cmd->cmd_and_av[i][j]);
 		}
 		else

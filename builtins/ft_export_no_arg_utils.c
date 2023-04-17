@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export_no_arg_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 20:09:35 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/17 20:10:02 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/17 20:23:54 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,22 +70,22 @@ t_env_info	*ft_dup_env_list(t_env_info *cur)
 	return (ret);
 }
 
-t_env_info	*ft_sort_env_list(t_env_info *head)
+t_env_info	*ft_sort_env_list(t_env_info *info_env)
 {
 	t_env_info	*cur;
 
-	cur = head;
+	cur = info_env;
 	while (cur->next->env_key)
 	{
 		if (ft_strcmp(cur->env_key, cur->next->env_key) > 0)
 		{
 			ft_swap_env(cur, cur->next);
-			cur = head;
+			cur = info_env;
 		}
 		else
 			cur = cur->next;
 	}
-	return (head);
+	return (info_env);
 }
 
 void	ft_free_env_list(t_env_info *info_env)

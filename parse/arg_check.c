@@ -6,19 +6,19 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:53:06 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/10 19:46:03 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/17 20:24:16 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static void	first(t_cmd_info *tmp, t_cmd_info **ptr, t_cmd_info **head)
+static void	first(t_cmd_info *tmp, t_cmd_info **ptr, t_cmd_info **cmd)
 {
 	tmp = (*ptr)->next;
 	tmp->prev = NULL;
-	(*head)->cmd_and_av = ft_free((*head)->cmd_and_av);
-	*head = ft_free((*head));
-	*head = tmp;
+	(*cmd)->cmd_and_av = ft_free((*cmd)->cmd_and_av);
+	*cmd = ft_free((*cmd));
+	*cmd = tmp;
 	*ptr = tmp;
 }
 

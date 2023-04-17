@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 20:00:55 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/17 20:24:46 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void		ft_arg_check(t_cmd_info **cmd);
 void		ft_parse(char *input, t_cmd_info *cmd);
 void		ft_del_argv(t_cmd_info *cmd, int *i);
 void		ft_change_argv(t_cmd_info *cmd, char *new, int i);
-void		ft_tokenize(t_cmd_info *cmd, t_env_info *head);
+void		ft_tokenize(t_cmd_info *cmd, t_env_info *info_env);
 void		execute(t_cmd_info *cmd, t_env_info *info_env);
 void		ft_execve(const char *file, char *const *argv, char *const *envp);
 void		ft_redirect(t_cmd_info *cmd);
@@ -174,7 +174,7 @@ char		*ft_getenv(t_env_info *info_env, char *key);
 char		*get_env_key2(char *key_value);
 char		*get_env_value2(void);
 t_env_info	*ft_dup_env_list(t_env_info *cur);
-t_env_info	*ft_sort_env_list(t_env_info *head);
+t_env_info	*ft_sort_env_list(t_env_info *info_env);
 t_env_info	*new_env(char *key_value);
 t_env_info	*compare_env_key(t_env_info *info_env, char *key);
 t_env_info	*compare_env_key(t_env_info *info_env, char *key);

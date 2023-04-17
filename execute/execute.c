@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:50 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 19:39:21 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/17 20:23:36 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static char	**get_envp(t_env_info *head, int size)
+static char	**get_envp(t_env_info *info_env, int size)
 {
 	int			i;
 	char		*env_key;
@@ -20,14 +20,14 @@ static char	**get_envp(t_env_info *head, int size)
 	char		**result;
 
 	i = -1;
-	tmp = head;
+	tmp = info_env;
 	while (tmp)
 	{
 		size++;
 		tmp = tmp->next;
 	}
 	result = malloc(sizeof(char *) * size);
-	tmp = head;
+	tmp = info_env;
 	while (++i < size - 1)
 	{
 		env_key = ft_strjoin(tmp->env_key, "=");
