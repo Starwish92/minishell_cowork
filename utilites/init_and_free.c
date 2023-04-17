@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_and_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:03:42 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/13 14:48:23 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/17 20:04:10 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_cmd_info	*ft_cmd_init(void)
 
 void	ft_free_list(t_cmd_info *cmd)
 {
-	int		i;
+	int			i;
 	t_cmd_info	*temp;
 
 	while (cmd)
