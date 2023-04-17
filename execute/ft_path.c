@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:01:41 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 20:53:59 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/17 19:42:15 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ char	*ft_get_cmd_path(t_cmd_info *cmd, t_env_info *info_env)
 
 	ret = NULL;
 	path_env = ft_getenv(info_env, "PATH");
-	if (ft_chk_relative(cmd->cmd_and_av[0]) && is_exist_file(cmd->cmd_and_av[0]))
+	if (ft_chk_relative(cmd->cmd_and_av[0]) && \
+		is_exist_file(cmd->cmd_and_av[0]))
 		return (ft_strdup(cmd->cmd_and_av[0]));
 	else if (path_env != NULL)
 		ret = ft_get_abs_path(cmd, path_env);

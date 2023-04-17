@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_open_files.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:01:33 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 20:53:11 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/17 19:41:45 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ static void	ft_open_infile(t_cmd_info *cmd)
 			close(cmd->ft_in_files);
 		cmd->ft_in_files = open(cmd->cmd_and_av[i + 1], O_RDONLY, 0644);
 		if (cmd->ft_in_files == -1)
-			print_err3(cmd->cmd_and_av[i + 1], NULL, "No such file or directory");
+			print_err3(cmd->cmd_and_av[i + 1], NULL, \
+				"No such file or directory");
 		ft_command_argv_trim(cmd, redir_in, 2);
 	}
 	return ;
@@ -92,7 +93,8 @@ static void	ft_open_outfile(t_cmd_info *cmd)
 	{
 		i = -1;
 		while (cmd->cmd_and_av[++i])
-			if (!ft_strcmp(cmd->cmd_and_av[i], r_o) || !ft_strcmp(cmd->cmd_and_av[i], r_a))
+			if (!ft_strcmp(cmd->cmd_and_av[i], r_o) || \
+				!ft_strcmp(cmd->cmd_and_av[i], r_a))
 				break ;
 		if (cmd->cmd_and_av[i] == NULL)
 			break ;

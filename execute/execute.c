@@ -6,22 +6,20 @@
 /*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:50 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 19:28:57 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/17 19:39:21 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static char	**get_envp(t_env_info *head)
+static char	**get_envp(t_env_info *head, int size)
 {
-	int		i;
-	int		size;
-	char	*env_key;
+	int			i;
+	char		*env_key;
 	t_env_info	*tmp;
-	char	**result;
+	char		**result;
 
-	i = 0;
-	size = 0;
+	i = -1;
 	tmp = head;
 	while (tmp)
 	{
@@ -30,11 +28,10 @@ static char	**get_envp(t_env_info *head)
 	}
 	result = malloc(sizeof(char *) * size);
 	tmp = head;
-	while (i < size - 1)
+	while (++i < size - 1)
 	{
 		env_key = ft_strjoin(tmp->env_key, "=");
 		result[i] = ft_strjoin(env_key, tmp->env_val);
-		i++;
 		tmp = tmp->next;
 		free(env_key);
 	}
@@ -53,7 +50,8 @@ static int	os_builtins(t_cmd_info *cmd, t_env_info *info_env)
 		print_err3(cmd->cmd_and_av[0], NULL, "No such file or directory");
 		return (127);
 	}
-	if (env_path != NULL && ft_strlen(env_path) == 0 && cmd->ft_command_path == NULL)
+	if (env_path != NULL && ft_strlen(env_path) == 0 && \
+		cmd->ft_command_path == NULL)
 	{
 		print_err3(cmd->cmd_and_av[0], NULL, "No such file or directory");
 		return (127);
@@ -63,7 +61,7 @@ static int	os_builtins(t_cmd_info *cmd, t_env_info *info_env)
 		print_err3(cmd->cmd_and_av[0], NULL, "command not found");
 		return (127);
 	}
-	now_env = get_envp(info_env);
+	now_env = get_envp(info_env, 0);
 	ft_execve(cmd->ft_command_path, cmd->cmd_and_av, now_env);
 	return (EXIT_FAILURE);
 }

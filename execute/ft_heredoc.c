@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_heredoc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:00:55 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 20:53:11 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/17 19:40:39 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	heredoc(t_cmd_info *cmd)
 	char		*tmp_file;
 	int			idx;
 	int			exit_code;
-	t_cmd_info		*cur;
+	t_cmd_info	*cur;
 
 	while (1)
 	{
@@ -104,7 +104,8 @@ int	heredoc(t_cmd_info *cmd)
 		if (cur->ft_in_files > 0)
 			ft_close(cur->ft_in_files);
 		tmp_file = ft_get_tmp_file();
-		cur->ft_in_files = ft_open(tmp_file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		cur->ft_in_files = ft_open(tmp_file, O_WRONLY | O_CREAT | \
+			O_TRUNC, 0644);
 		exit_code = ft_fork_heredoc(cur, idx);
 		g_exit_signal_code = exit_code;
 		if (exit_code == EXIT_SUCCESS)
