@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 20:24:46 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/17 20:34:56 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,10 @@ void		ft_free_env_list(t_env_info *env);
 void		get_pwd(const char *pwd, t_env_info *info_env);
 void		ft_export_val(t_env_info *info_env, char *key_value);
 void		ft_minishell(char *input, t_cmd_info *cmd, t_env_info info_env);
+long long	ft_atoi(const char *str);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
-int			ft_atoi(const char *str);
 int			ft_strcmp(const char *s1, const char *s2);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_isspace(char c);
