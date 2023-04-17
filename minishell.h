@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 16:30:35 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/17 17:39:13 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,7 +161,7 @@ pid_t	ft_fork(void);
 int ft_is_only_key(char *argv);
 char	*get_env_value2(void);
 char	*get_env_key2(char *key_value);
-
+void	ft_pica_shell(void);
 
 // int	ft_is_valid_identifier(char *identifier);
 // void printstderr(char *str);
