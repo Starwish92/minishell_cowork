@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:32 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 20:34:47 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/17 19:46:48 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ static int	ft_check_start_one_pipe(t_cmd_info *cmd)
 	return (0);
 }
 
+int	ft_norm(void)
+{
+	print_err1("syntax error near unexpected token `newline'");
+	g_exit_signal_code = 258;
+	return (-1);
+}
+
 static int	ft_check_redir_files(t_cmd_info *cmd, int i, int ret)
 {
 	const char	oc[2] = {REDIR_R, '\0'};
@@ -34,18 +41,18 @@ static int	ft_check_redir_files(t_cmd_info *cmd, int i, int ret)
 		return (0);
 	while (i < cmd->ac)
 	{
-		if (!ft_strcmp(cmd->cmd_and_av[i], oc) || !ft_strcmp(cmd->cmd_and_av[i], oa))
-			if (cmd->cmd_and_av[i + 1] == NULL || ft_strlen(cmd->cmd_and_av[i + 1]) == 0)
+		if (!ft_strcmp(cmd->cmd_and_av[i], oc)	\
+				|| !ft_strcmp(cmd->cmd_and_av[i], oa))
+				if (cmd->cmd_and_av[i + 1] == NULL	\
+						|| ft_strlen(cmd->cmd_and_av[i + 1]) == 0)
 				ret = -1;
-		if (!ft_strcmp(cmd->cmd_and_av[i], ic) || !ft_strcmp(cmd->cmd_and_av[i], ia))
-			if (cmd->cmd_and_av[i + 1] == NULL || ft_strlen(cmd->cmd_and_av[i + 1]) == 0)
+		if (!ft_strcmp(cmd->cmd_and_av[i], ic)	\
+				|| !ft_strcmp(cmd->cmd_and_av[i], ia))	\
+				if (cmd->cmd_and_av[i + 1] == NULL 
+						|| ft_strlen(cmd->cmd_and_av[i + 1]) == 0)
 				ret = -1;
 		if (ret == -1)
-		{
-			print_err1("syntax error near unexpected token `newline'");
-			g_exit_signal_code = 258;
-			return (-1);
-		}
+			return (ft_norm());
 		++i;
 	}
 	return (0);

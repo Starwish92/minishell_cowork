@@ -32,20 +32,15 @@ static int	ft_export_with_no_arg(t_env_info *info_env)
 	cur = sorted_env;
 	while (cur->env_key)
 	{
-		if (!ft_strcmp(cur->env_val, "don't_print_this"))
+		ft_write(STDOUT_FILENO, "declare -x ", 11);
+		ft_write(STDOUT_FILENO, cur->env_key, ft_strlen(cur->env_key));
+		ft_write(STDOUT_FILENO, "=\"", 2);
+		if (ft_strcmp(cur->env_val, "don't_print_this") != 0)
 		{
-			ft_write(STDOUT_FILENO, "declare -x ", 11);
-			ft_write(STDOUT_FILENO, cur->env_key, ft_strlen(cur->env_key));
-			ft_write(STDOUT_FILENO, "\n", 1);
-		}	
-		else
-		{
-			ft_write(STDOUT_FILENO, "declare -x ", 11);
-			ft_write(STDOUT_FILENO, cur->env_key, ft_strlen(cur->env_key));
-			ft_write(STDOUT_FILENO, "=\"", 2);
 			ft_write(STDOUT_FILENO, cur->env_val, ft_strlen(cur->env_val));
-			ft_write(STDOUT_FILENO, "\"\n", 2);
+			ft_write(STDOUT_FILENO, "\"", 1);
 		}
+		ft_write(STDOUT_FILENO, "\n", 1);
 		cur = cur->next;
 	}
 	ft_free_env_list(sorted_env);
@@ -55,8 +50,8 @@ static int	ft_export_with_no_arg(t_env_info *info_env)
 void	ft_export_val(t_env_info *info_env, char *key_value)
 {
 	t_env_info	*env;
-	char	*key;
-	char	*value;
+	char		*key;
+	char		*value;
 
 	if (ft_is_only_key(key_value))
 	{
@@ -82,7 +77,6 @@ int	ft_export(int argc, char **argv, t_env_info *info_env)
 	int	exit_code;
 
 	exit_code = EXIT_SUCCESS;
-	// printf("%d\n", argc);
 	if (ft_valid_identifier_ch(argc, argv) == -1)
 		exit_code = EXIT_FAILURE;
 	else if (argc == 1)

@@ -40,10 +40,13 @@ int	ft_specific_char_ch(char *key_value, char c)
 	return (1);
 }
 
-int ft_is_only_key(char *argv)
+int	ft_is_only_key(char *argv)
 {
-	int i = 0;
-	int cnt = 0;
+	int	i;
+	int	cnt;
+
+	i = 0;
+	cnt = 0;
 	while (argv[i])
 	{
 		if (argv[i] == '=')
@@ -51,8 +54,8 @@ int ft_is_only_key(char *argv)
 		i++;
 	}
 	if (cnt == 0)
-		return 1;
-	return 0;
+		return (1);
+	return (0);
 }
 
 int	ft_valid_identifier_ch(int argc, char **argv)
@@ -63,9 +66,7 @@ int	ft_valid_identifier_ch(int argc, char **argv)
 	while (i < argc)
 	{
 		if (ft_is_only_key(argv[1]))
-		{
-			return 0;
-		}
+			return (0);
 		if (!ft_specific_char_ch(argv[i], '='))
 		{
 			print_quote_err3("export", argv[i], "not a valid identifier1");

@@ -16,6 +16,17 @@ static void	ft_remove_env(t_env_info *env)
 	free(env);
 }
 
+static void	unset(t_env_info *info_env, char *key)
+{
+	t_env_info	*env;
+
+	env = compare_env_key(info_env, key);
+	if (env->env_key == NULL)
+		return ;
+	else
+		ft_remove_env(env);
+}
+
 static int	ft_valid_key_identifier_ch(int argc, char **argv)
 {
 	int	i;
@@ -45,16 +56,6 @@ static int	ft_valid_key_identifier_ch(int argc, char **argv)
 	return (0);
 }
 
-static void	unset(t_env_info *info_env, char *key)
-{
-	t_env_info	*env;
-
-	env = compare_env_key(info_env, key);
-	if (env->env_key == NULL)
-		return ;
-	else
-		ft_remove_env(env);
-}
 
 int	ft_unset(int argc, char **argv, t_env_info *info_env)
 {
