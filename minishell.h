@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/18 19:33:14 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/18 22:01:58 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	g_exit_signal_code;
 
 typedef struct s_cmd_info
 {
-	char				**cmd_and_av;
+	char				**cmd_av;
 	int					ac;
 	bool				ft_pipe_flag;
 	bool				ft_dollar_flag;

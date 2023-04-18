@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_heredoc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:00:55 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 19:40:39 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/18 22:01:58 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static int	ft_check_heredoc(t_cmd_info *cmd)
 	const char	redir_h[3] = {REDIR_L, REDIR_L, '\0'};
 
 	idx = -1;
-	while (cmd->cmd_and_av[++idx])
-		if (!ft_strcmp(cmd->cmd_and_av[idx], redir_h))
+	while (cmd->cmd_av[++idx])
+		if (!ft_strcmp(cmd->cmd_av[idx], redir_h))
 			break ;
-	if (cmd->cmd_and_av[idx] == NULL)
+	if (cmd->cmd_av[idx] == NULL)
 		return (-1);
 	return (idx);
 }
@@ -31,7 +31,7 @@ static void	ft_new_input_heredoc(t_cmd_info *cmd, int index_lim)
 	char	*line;
 	char	*limiter;
 
-	limiter = cmd->cmd_and_av[index_lim];
+	limiter = cmd->cmd_av[index_lim];
 	while (1)
 	{	
 		line = readline("> ");

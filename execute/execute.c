@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:50 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/18 19:32:51 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/18 22:01:58 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,41 +47,41 @@ static int	os_builtins(t_cmd_info *cmd, t_env_info *info_env)
 	env_path = ft_getenv(info_env, "PATH");
 	if (env_path == NULL && cmd->ft_command_path == NULL)
 	{
-		print_err3(cmd->cmd_and_av[0], NULL, "No such file or directory");
+		print_err3(cmd->cmd_av[0], NULL, "No such file or directory");
 		return (127);
 	}
 	if (env_path != NULL && ft_strlen(env_path) == 0 && \
 		cmd->ft_command_path == NULL)
 	{
-		print_err3(cmd->cmd_and_av[0], NULL, "No such file or directory");
+		print_err3(cmd->cmd_av[0], NULL, "No such file or directory");
 		return (127);
 	}
 	if (cmd->ft_command_path == NULL)
 	{
-		print_err3(cmd->cmd_and_av[0], NULL, "command not found");
+		print_err3(cmd->cmd_av[0], NULL, "command not found");
 		return (127);
 	}
 	now_env = get_envp(info_env, 0);
-	ft_execve(cmd->ft_command_path, cmd->cmd_and_av, now_env);
+	ft_execve(cmd->ft_command_path, cmd->cmd_av, now_env);
 	return (EXIT_FAILURE);
 }
 
 static int	execute_cmd(t_cmd_info *cmd, t_env_info *info_env)
 {
 	restore_redirection_char(cmd);
-	if (!ft_strcmp(cmd->cmd_and_av[0], "echo"))
-		return (ft_echo(cmd->ac, cmd->cmd_and_av));
-	if (!ft_strcmp(cmd->cmd_and_av[0], "cd"))
-		return (ft_cd(cmd->cmd_and_av[1], info_env, cmd));
-	if (!ft_strcmp(cmd->cmd_and_av[0], "pwd"))
+	if (!ft_strcmp(cmd->cmd_av[0], "echo"))
+		return (ft_echo(cmd->ac, cmd->cmd_av));
+	if (!ft_strcmp(cmd->cmd_av[0], "cd"))
+		return (ft_cd(cmd->cmd_av[1], info_env, cmd));
+	if (!ft_strcmp(cmd->cmd_av[0], "pwd"))
 		return (ft_pwd());
-	if (!ft_strcmp(cmd->cmd_and_av[0], "export"))
-		return (ft_export(cmd->ac, cmd->cmd_and_av, info_env));
-	if (!ft_strcmp(cmd->cmd_and_av[0], "unset"))
-		return (ft_unset(cmd->ac, cmd->cmd_and_av, info_env));
-	if (!ft_strcmp(cmd->cmd_and_av[0], "env"))
+	if (!ft_strcmp(cmd->cmd_av[0], "export"))
+		return (ft_export(cmd->ac, cmd->cmd_av, info_env));
+	if (!ft_strcmp(cmd->cmd_av[0], "unset"))
+		return (ft_unset(cmd->ac, cmd->cmd_av, info_env));
+	if (!ft_strcmp(cmd->cmd_av[0], "env"))
 		return (ft_env(info_env));
-	if (!ft_strcmp(cmd->cmd_and_av[0], "exit"))
+	if (!ft_strcmp(cmd->cmd_av[0], "exit"))
 		return (ft_exit(cmd));
 	return (os_builtins(cmd, info_env));
 }

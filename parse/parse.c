@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:44:06 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/18 20:56:20 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/18 22:01:58 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	*in_pipe(char *str, int *ch_pipe, \
 	if (*ch_pipe == 1)
 		exit_errno("argv error", "||", 1);
 	(*cmd)->ft_pipe_flag = true;
-	(*cmd)->cmd_and_av = ft_split_arg(str, ' ', &((*cmd)->ac));
+	(*cmd)->cmd_av = ft_split_arg(str, ' ', &((*cmd)->ac));
 	next = ft_cmd_init();
 	(*cmd)->next = next;
 	next->prev = (*cmd);
@@ -97,7 +97,7 @@ void	ft_parse(char *input, t_cmd_info *cmd)
 		exit_errno("quotes error", NULL, 1);
 	if (str != NULL)
 	{
-		cmd->cmd_and_av = ft_split_arg(str, ' ', &(cmd->ac));
+		cmd->cmd_av = ft_split_arg(str, ' ', &(cmd->ac));
 		str = ft_free(str);
 	}
 }

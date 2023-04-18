@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:01:41 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/18 21:09:41 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/18 22:01:58 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*ft_get_abs_path(t_cmd_info *cmd, char *path_env)
 
 	i = 0;
 	path = ft_split(path_env, ':');
-	slash = ft_strjoin("/", cmd->cmd_and_av[0]);
+	slash = ft_strjoin("/", cmd->cmd_av[0]);
 	while (path[i])
 	{
 		ret = ft_strjoin(path[i], slash);
@@ -72,12 +72,12 @@ char	*ft_get_cmd_path(t_cmd_info *cmd, t_env_info *info_env)
 
 	ret = NULL;
 	path_env = ft_getenv(info_env, "PATH");
-	if (ft_chk_relative(cmd->cmd_and_av[0]) && \
-		is_exist_file(cmd->cmd_and_av[0]))
-		return (ft_strdup(cmd->cmd_and_av[0]));
+	if (ft_chk_relative(cmd->cmd_av[0]) && \
+		is_exist_file(cmd->cmd_av[0]))
+		return (ft_strdup(cmd->cmd_av[0]));
 	else if (path_env != NULL)
 		ret = ft_get_abs_path(cmd, path_env);
-	if (ret == NULL && is_exist_file(cmd->cmd_and_av[0]))
-		return (ft_strdup(cmd->cmd_and_av[0]));
+	if (ret == NULL && is_exist_file(cmd->cmd_av[0]))
+		return (ft_strdup(cmd->cmd_av[0]));
 	return (ret);
 }

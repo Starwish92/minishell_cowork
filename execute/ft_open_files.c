@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:01:33 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/18 21:53:46 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/18 22:01:58 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_command_argv_trim(t_cmd_info *cmd, const char *set, int size)
 	i = -1;
 	tmp_argc = cmd->ac;
 	while (++i < cmd->ac)
-		if (!ft_strcmp(cmd->cmd_and_av[i], set))
+		if (!ft_strcmp(cmd->cmd_av[i], set))
 			break ;
 	if (i == cmd->ac)
 		return ;
@@ -29,10 +29,10 @@ void	ft_command_argv_trim(t_cmd_info *cmd, const char *set, int size)
 	cmd->ac -= size;
 	while (size--)
 	{
-		free(cmd->cmd_and_av[i]);
+		free(cmd->cmd_av[i]);
 		while (i < tmp_argc)
 		{
-			cmd->cmd_and_av[i] = cmd->cmd_and_av[i + 1];
+			cmd->cmd_av[i] = cmd->cmd_av[i + 1];
 			++i;
 		}
 		i = tmp;
@@ -47,18 +47,18 @@ static void	ft_open_infile(t_cmd_info *cmd)
 	while (1)
 	{
 		i = -1;
-		while (cmd->cmd_and_av[++i])
-			if (!ft_strcmp(cmd->cmd_and_av[i], redir_in))
+		while (cmd->cmd_av[++i])
+			if (!ft_strcmp(cmd->cmd_av[i], redir_in))
 				break ;
-		if (cmd->cmd_and_av[i] == NULL)
+		if (cmd->cmd_av[i] == NULL)
 			break ;
 		if (cmd->ft_in_files > 0)
 			close(cmd->ft_in_files);
-		cmd->ft_in_files = open(cmd->cmd_and_av[i + 1], O_RDONLY, 0644);
+		cmd->ft_in_files = open(cmd->cmd_av[i + 1], O_RDONLY, 0644);
 		if (cmd->ft_in_files == -1)
-			print_err3(cmd->cmd_and_av[i + 1], NULL, \
+			print_err3(cmd->cmd_av[i + 1], NULL, \
 				"No such file or directory");
-		if (!ft_strcmp(cmd->cmd_and_av[0], redir_in))
+		if (!ft_strcmp(cmd->cmd_av[0], redir_in))
 			ft_command_argv_trim(cmd, redir_in, 1);
 		ft_command_argv_trim(cmd, redir_in, 2);
 	}
@@ -71,18 +71,18 @@ static void	ft_outfile_argv_trim(t_cmd_info *cmd, int i)
 	const char	r_o[2] = {REDIR_R, '\0'};
 	const char	r_a[3] = {REDIR_R, REDIR_R, '\0'};
 
-	if (ft_strcmp(cmd->cmd_and_av[i], r_o) == 0)
+	if (ft_strcmp(cmd->cmd_av[i], r_o) == 0)
 	{
 		o_flag = O_WRONLY | O_CREAT | O_TRUNC;
-		cmd->ft_out_files = ft_open(cmd->cmd_and_av[i + 1], o_flag, 0644);
-		if (!ft_strcmp(cmd->cmd_and_av[0], r_o))
+		cmd->ft_out_files = ft_open(cmd->cmd_av[i + 1], o_flag, 0644);
+		if (!ft_strcmp(cmd->cmd_av[0], r_o))
 			ft_command_argv_trim(cmd, r_o, 1);
 		ft_command_argv_trim(cmd, r_o, 2);
 	}
-	else if (ft_strcmp(cmd->cmd_and_av[i], r_a) == 0)
+	else if (ft_strcmp(cmd->cmd_av[i], r_a) == 0)
 	{
 		o_flag = O_WRONLY | O_CREAT | O_APPEND;
-		cmd->ft_out_files = ft_open(cmd->cmd_and_av[i + 1], o_flag, 0644);
+		cmd->ft_out_files = ft_open(cmd->cmd_av[i + 1], o_flag, 0644);
 		ft_command_argv_trim(cmd, r_a, 2);
 	}
 }
@@ -96,11 +96,11 @@ static void	ft_open_outfile(t_cmd_info *cmd)
 	while (1)
 	{
 		i = -1;
-		while (cmd->cmd_and_av[++i])
-			if (!ft_strcmp(cmd->cmd_and_av[i], r_o) || \
-				!ft_strcmp(cmd->cmd_and_av[i], r_a))
+		while (cmd->cmd_av[++i])
+			if (!ft_strcmp(cmd->cmd_av[i], r_o) || \
+				!ft_strcmp(cmd->cmd_av[i], r_a))
 				break ;
-		if (cmd->cmd_and_av[i] == NULL)
+		if (cmd->cmd_av[i] == NULL)
 			break ;
 		if (cmd->ft_out_files > 0)
 			close(cmd->ft_out_files);

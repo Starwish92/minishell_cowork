@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:32 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/18 20:36:00 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/18 22:03:22 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,14 @@ static int	ft_check_redir_files(t_cmd_info *cmd, int i, int ret)
 		return (0);
 	while (i < cmd->ac)
 	{
-		if (!ft_strcmp(cmd->cmd_and_av[i], oc) || \
-			!ft_strcmp(cmd->cmd_and_av[i], oa))
-			if (cmd->cmd_and_av[i + 1] == NULL || \
-				ft_strlen(cmd->cmd_and_av[i + 1]) == 0)
+		if (!ft_strcmp(cmd->cmd_av[i], oc) || !ft_strcmp(cmd->cmd_av[i], oa))
+			if (cmd->cmd_av[i + 1] == NULL || !ft_strlen(cmd->cmd_av[i + 1]))
 				ret = -1;
-		if (!ft_strcmp(cmd->cmd_and_av[i], ic) || \
-			!ft_strcmp(cmd->cmd_and_av[i], ia) || \
-			!ft_strcmp(cmd->cmd_and_av[i], heredoc))
-			if (cmd->cmd_and_av[i + 1] == NULL || \
-				ft_strlen(cmd->cmd_and_av[i + 1]) == 0)
+		if (!ft_strcmp(cmd->cmd_av[i], ic) || !ft_strcmp(cmd->cmd_av[i], ia) || \
+				!ft_strcmp(cmd->cmd_av[i], heredoc))
+			if (cmd->cmd_av[i + 1] == NULL || !ft_strlen(cmd->cmd_av[i + 1]))
 				ret = -1;
-		if (ret == -1 && ft_strcmp(cmd->cmd_and_av[i], ia))
+		if (ret == -1 && ft_strcmp(cmd->cmd_av[i], ia))
 			return (ft_norm());
 		++i;
 	}
@@ -63,7 +59,7 @@ static int	ft_check_redir_files(t_cmd_info *cmd, int i, int ret)
 static int	ft_check_empty_token(t_cmd_info *cmd)
 {
 	if (cmd->ft_dollar_flag == false && cmd->ac == 1 && \
-			!ft_strcmp(cmd->cmd_and_av[0], ""))
+			!ft_strcmp(cmd->cmd_av[0], ""))
 	{
 		print_err2("", "command not found");
 		g_exit_signal_code = 127;

@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:36 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/14 20:56:12 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/18 22:01:58 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	ft_is_need_fork_cmd(t_cmd_info *cmd)
 		return (1);
 	if (cmd->ft_out_files != -2)
 		return (1);
-	if (!ft_strcmp(cmd->cmd_and_av[0], "cd"))
+	if (!ft_strcmp(cmd->cmd_av[0], "cd"))
 		return (0);
-	if (!ft_strcmp(cmd->cmd_and_av[0], "export"))
+	if (!ft_strcmp(cmd->cmd_av[0], "export"))
 		return (0);
-	if (!ft_strcmp(cmd->cmd_and_av[0], "unset"))
+	if (!ft_strcmp(cmd->cmd_av[0], "unset"))
 		return (0);
-	if (!ft_strcmp(cmd->cmd_and_av[0], "exit"))
+	if (!ft_strcmp(cmd->cmd_av[0], "exit"))
 		return (0);
 	return (1);
 }
@@ -39,15 +39,15 @@ void	restore_redirection_char(t_cmd_info *cmd)
 	int		j;
 
 	i = 0;
-	while (cmd->cmd_and_av[i])
+	while (cmd->cmd_av[i])
 	{
 		j = 0;
-		while (cmd->cmd_and_av[i][j])
+		while (cmd->cmd_av[i][j])
 		{
-			if (cmd->cmd_and_av[i][j] == REDIR_L)
-				cmd->cmd_and_av[i][j] = '<';
-			else if (cmd->cmd_and_av[i][j] == REDIR_R)
-				cmd->cmd_and_av[i][j] = '>';
+			if (cmd->cmd_av[i][j] == REDIR_L)
+				cmd->cmd_av[i][j] = '<';
+			else if (cmd->cmd_av[i][j] == REDIR_R)
+				cmd->cmd_av[i][j] = '>';
 			++j;
 		}
 		++i;

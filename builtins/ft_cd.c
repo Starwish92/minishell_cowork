@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:28:25 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/18 19:34:33 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/18 22:03:36 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static int	ft_dir_path(char *path, t_env_info *info_env, t_cmd_info *cmd)
 	exit_code = chdir(path);
 	if (exit_code == -1)
 	{
-		if (ft_strcmp(cmd->cmd_and_av[1], "netexist"))
+		if (ft_strcmp(cmd->cmd_av[1], "netexist"))
 			exit_code = 1;
 		print_err3("cd", path, strerror(errno));
 	}

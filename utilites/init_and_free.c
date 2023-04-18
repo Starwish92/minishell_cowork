@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_and_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:03:42 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 20:03:46 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/18 22:01:58 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_cmd_info	*ft_cmd_init(void)
 	new->ft_dollar_flag = false;
 	new->ft_pipe_flag = false;
 	new->ft_command_path = NULL;
-	new->cmd_and_av = NULL;
+	new->cmd_av = NULL;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);
@@ -48,10 +48,10 @@ void	ft_free_list(t_cmd_info *cmd)
 		i = 0;
 		while (i < cmd->ac)
 		{
-			cmd->cmd_and_av[i] = ft_free(cmd->cmd_and_av[i]);
+			cmd->cmd_av[i] = ft_free(cmd->cmd_av[i]);
 			i++;
 		}
-		cmd->cmd_and_av = ft_free(cmd->cmd_and_av);
+		cmd->cmd_av = ft_free(cmd->cmd_av);
 		temp = cmd;
 		cmd = cmd->next;
 		temp = ft_free(temp);

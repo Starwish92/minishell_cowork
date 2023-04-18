@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:54:59 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/18 18:29:24 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/18 22:01:58 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,19 +74,19 @@ static char	*ft_tokenize_while(t_cmd_info *cmd, t_env_info *head, int i)
 	j = 0;
 	ch_quote = 0;
 	ch_dollar = 0;
-	while (j <= (int)ft_strlen(cmd->cmd_and_av[i]))
+	while (j <= (int)ft_strlen(cmd->cmd_av[i]))
 	{
-		ch_quote = set_quotes(cmd->cmd_and_av[i][j], ch_quote, cmd);
-		if (cmd->cmd_and_av[i][j] == '$' && ch_quote != 1 && ch_dollar == 0)
+		ch_quote = set_quotes(cmd->cmd_av[i][j], ch_quote, cmd);
+		if (cmd->cmd_av[i][j] == '$' && ch_quote != 1 && ch_dollar == 0)
 			ch_dollar = 1;
 		else if (ch_dollar == 1)
 		{
-			new = ft_tokenize_while_dollar(cmd->cmd_and_av[i][j], \
+			new = ft_tokenize_while_dollar(cmd->cmd_av[i][j], \
 				new, head, ch_quote);
-			ch_dollar = dollar_check(cmd->cmd_and_av[i][j]);
+			ch_dollar = dollar_check(cmd->cmd_av[i][j]);
 		}
 		else
-			new = ft_tokenize_while_else(cmd->cmd_and_av[i][j], new, ch_quote);
+			new = ft_tokenize_while_else(cmd->cmd_av[i][j], new, ch_quote);
 		j++;
 	}
 	return (new);
