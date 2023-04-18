@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_utils2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 20:10:25 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/17 20:10:26 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/18 16:32:45 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ char	*ft_getenv(t_env_info *info_env, char *key)
 	t_env_info	*cur;
 
 	cur = compare_env_key(info_env, key);
+	if (ft_strcmp(cur->env_val, "don't_print_this"))
+		return (NULL);
 	return (cur->env_val);
 }
