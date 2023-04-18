@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_unset.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/18 18:28:56 by hyyoo             #+#    #+#             */
+/*   Updated: 2023/04/18 18:30:10 by hyyoo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../minishell.h"
 
@@ -55,7 +65,6 @@ static int	ft_valid_key_identifier_ch(int argc, char **argv)
 	}
 	return (0);
 }
-
 
 int	ft_unset(int argc, char **argv, t_env_info *info_env)
 {
