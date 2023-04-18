@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 20:00:55 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/18 19:33:14 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ int			ft_here_init(t_cmd_info *cmd);
 int			ft_open(char *fname, int oflag, int mode);
 int			ft_close(int fd);
 int			ft_pwd(void);
-int			ft_cd(char *path, t_env_info *info_env);
+int			ft_cd(char *path, t_env_info *info_env, t_cmd_info *cmd);
 int			ft_env(t_env_info *info_env);
 int			ft_echo(int argc, char **argv);
 int			ft_exit(t_cmd_info *cmd);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:50 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 19:39:21 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/18 19:32:51 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static int	execute_cmd(t_cmd_info *cmd, t_env_info *info_env)
 	if (!ft_strcmp(cmd->cmd_and_av[0], "echo"))
 		return (ft_echo(cmd->ac, cmd->cmd_and_av));
 	if (!ft_strcmp(cmd->cmd_and_av[0], "cd"))
-		return (ft_cd(cmd->cmd_and_av[1], info_env));
+		return (ft_cd(cmd->cmd_and_av[1], info_env, cmd));
 	if (!ft_strcmp(cmd->cmd_and_av[0], "pwd"))
 		return (ft_pwd());
 	if (!ft_strcmp(cmd->cmd_and_av[0], "export"))

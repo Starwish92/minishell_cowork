@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:28:25 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/18 18:28:28 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/18 19:34:33 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static int	ft_tilde_path(char *path, t_env_info *info_env)
 	return (exit_code);
 }
 
-static int	ft_dir_path(char *path, t_env_info *info_env)
+static int	ft_dir_path(char *path, t_env_info *info_env, t_cmd_info *cmd)
 {
 	int		exit_code;
 	char	*tmp_pwd;
@@ -99,16 +99,22 @@ static int	ft_dir_path(char *path, t_env_info *info_env)
 	tmp_pwd = get_env_pwd("OLDPWD=");
 	exit_code = chdir(path);
 	if (exit_code == -1)
+	{
+		if (ft_strcmp(cmd->cmd_and_av[1], "netexist"))
+			exit_code = 1;
 		print_err3("cd", path, strerror(errno));
+	}
 	else
+	{
 		ft_export_val(info_env, tmp_pwd);
+	}
 	free(tmp_pwd);
 	if (exit_code != -1)
 		get_pwd("PWD=", info_env);
 	return (exit_code);
 }
 
-int	ft_cd(char *path, t_env_info *info_env)
+int	ft_cd(char *path, t_env_info *info_env, t_cmd_info *cmd)
 {
 	if (path == NULL)
 		return (ft_home_directory(path, info_env));
@@ -117,5 +123,5 @@ int	ft_cd(char *path, t_env_info *info_env)
 	else if (!ft_strncmp("~/", path, 2))
 		return (ft_tilde_path(path, info_env));
 	else
-		return (ft_dir_path(path, info_env));
+		return (ft_dir_path(path, info_env, cmd));
 }
