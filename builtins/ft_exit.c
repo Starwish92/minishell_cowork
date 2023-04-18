@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: y	uhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 20:09:13 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/17 21:51:37 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/18 16:15:34 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,20 @@ static void	ft_exit_with_no_arg(t_cmd_info *cmd)
 
 static void	ft_exit_with_two_arg(t_cmd_info *cmd)
 {
-	int	exit_code;
-	long long check;
+	int			exit_code;
+	long long	check;
 
 	check = ft_atoi(cmd->cmd_and_av[1]);
 	exit_code = EXIT_SUCCESS;
 	if (cmd->prev == NULL)
 		ft_write(STDOUT_FILENO, "exit\n", 5);
 	if ((ft_all_number(cmd->cmd_and_av[1]) && ft_strlen(cmd->cmd_and_av[1]) == 2) ||\
-			 (ft_all_number(cmd->cmd_and_av[1]) && ft_strlen(cmd->cmd_and_av[1]) == 1))
+			(ft_all_number(cmd->cmd_and_av[1]) && ft_strlen(cmd->cmd_and_av[1]) == 1))
 	{
 		exit_code = ft_atoi(cmd->cmd_and_av[1]) % 256;
 		exit(exit_code);
 	}
-	if (check == 0 || check == -1) //마이너스 범위 넘어갈때
+	if (check == 0 || check == -1)
 	{
 			print_err3("exit", cmd->cmd_and_av[1], "numeric argument required");
 			exit_code = 255;
@@ -63,8 +63,6 @@ static void	ft_exit_with_two_arg(t_cmd_info *cmd)
 		exit_code = ft_atoi(cmd->cmd_and_av[1]) % 256;
 	exit(exit_code);
 }
-	// -9223372036854775808
-	// 9223372036854775807
 
 int	ft_exit(t_cmd_info *cmd)
 {
