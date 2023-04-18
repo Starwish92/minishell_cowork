@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_open_files.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:01:33 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 19:41:45 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/18 21:53:46 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ static void	ft_open_infile(t_cmd_info *cmd)
 		if (cmd->ft_in_files == -1)
 			print_err3(cmd->cmd_and_av[i + 1], NULL, \
 				"No such file or directory");
+		if (!ft_strcmp(cmd->cmd_and_av[0], redir_in))
+			ft_command_argv_trim(cmd, redir_in, 1);
 		ft_command_argv_trim(cmd, redir_in, 2);
 	}
 	return ;
@@ -73,6 +75,8 @@ static void	ft_outfile_argv_trim(t_cmd_info *cmd, int i)
 	{
 		o_flag = O_WRONLY | O_CREAT | O_TRUNC;
 		cmd->ft_out_files = ft_open(cmd->cmd_and_av[i + 1], o_flag, 0644);
+		if (!ft_strcmp(cmd->cmd_and_av[0], r_o))
+			ft_command_argv_trim(cmd, r_o, 1);
 		ft_command_argv_trim(cmd, r_o, 2);
 	}
 	else if (ft_strcmp(cmd->cmd_and_av[i], r_a) == 0)

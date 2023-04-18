@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: shane <shane@student.42.fr>                +#+  +:+       +#+         #
+#    By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 13:03:55 by youngjpa          #+#    #+#              #
-#    Updated: 2023/04/18 18:31:43 by shane            ###   ########.fr        #
+#    Updated: 2023/04/18 20:45:30 by yuhyeongmin      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,9 +56,10 @@ SRCS		=	minishell.c				\
 
 OBJS		= $(SRCS:%.c=%.o)
 
-SAN = -fsanitize=address -g3
+# SAN = -fsanitize=address -g3
 DEBUG = -g
-CC = gcc $(DEBUG) $(SAN)
+CC = gcc $(DEBUG) 
+# $(SAN)
 CFLAGS = -Werror -Wall -Wextra
 READLINE_LIB 	= -lreadline -L/opt/homebrew/opt/readline/lib
 READLINE_INC	= -I/opt/homebrew/opt/readline/include

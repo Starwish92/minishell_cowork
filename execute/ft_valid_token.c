@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_valid_token.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:32 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 19:54:04 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/18 20:36:00 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static int	ft_check_redir_files(t_cmd_info *cmd, int i, int ret)
 	const char	oa[3] = {REDIR_R, REDIR_R, '\0'};
 	const char	ic[2] = {REDIR_L, '\0'};
 	const char	ia[3] = {REDIR_L, REDIR_R, '\0'};
+	const char	heredoc[3] = {REDIR_L, REDIR_L, '\0'};
 
 	if (cmd->ac == 0)
 		return (0);
@@ -47,11 +48,12 @@ static int	ft_check_redir_files(t_cmd_info *cmd, int i, int ret)
 				ft_strlen(cmd->cmd_and_av[i + 1]) == 0)
 				ret = -1;
 		if (!ft_strcmp(cmd->cmd_and_av[i], ic) || \
-			!ft_strcmp(cmd->cmd_and_av[i], ia))
+			!ft_strcmp(cmd->cmd_and_av[i], ia) || \
+			!ft_strcmp(cmd->cmd_and_av[i], heredoc))
 			if (cmd->cmd_and_av[i + 1] == NULL || \
 				ft_strlen(cmd->cmd_and_av[i + 1]) == 0)
 				ret = -1;
-		if (ret == -1)
+		if (ret == -1 && ft_strcmp(cmd->cmd_and_av[i], ia))
 			return (ft_norm());
 		++i;
 	}
