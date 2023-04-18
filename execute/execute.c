@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:50 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/18 17:53:37 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/17 19:39:21 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static char	**get_envp(t_env_info *info_env, int size)
+static char	**get_envp(t_env_info *head, int size)
 {
 	int			i;
 	char		*env_key;
@@ -20,14 +20,14 @@ static char	**get_envp(t_env_info *info_env, int size)
 	char		**result;
 
 	i = -1;
-	tmp = info_env;
+	tmp = head;
 	while (tmp)
 	{
 		size++;
 		tmp = tmp->next;
 	}
 	result = malloc(sizeof(char *) * size);
-	tmp = info_env;
+	tmp = head;
 	while (++i < size - 1)
 	{
 		env_key = ft_strjoin(tmp->env_key, "=");
@@ -38,21 +38,16 @@ static char	**get_envp(t_env_info *info_env, int size)
 	result[i] = NULL;
 	return (result);
 }
-	// char	*env_path;
-	// char	**now_env;
 
-	// env_path = ft_getenv(info_env, "PATH");
-
-static int	os_builtins(t_cmd_info *cmd, t_env_info *info_env, \
-	char *env_path, char **now_env)
+static int	os_builtins(t_cmd_info *cmd, t_env_info *info_env)
 {
+	char	*env_path;
+	char	**now_env;
+
+	env_path = ft_getenv(info_env, "PATH");
 	if (env_path == NULL && cmd->ft_command_path == NULL)
 	{
-		if (ft_strcmp(cmd->cmd_and_av[0], "don't_print_this\n") || \
-			cmd->cmd_and_av[0] == NULL)
-			return (0);
-		else
-			print_err3(cmd->cmd_and_av[0], NULL, "No such file or directory");
+		print_err3(cmd->cmd_and_av[0], NULL, "No such file or directory");
 		return (127);
 	}
 	if (env_path != NULL && ft_strlen(env_path) == 0 && \
@@ -73,11 +68,6 @@ static int	os_builtins(t_cmd_info *cmd, t_env_info *info_env, \
 
 static int	execute_cmd(t_cmd_info *cmd, t_env_info *info_env)
 {
-	char	*env_path;
-	char	**now_env;
-
-	env_path = NULL;
-	now_env = NULL;
 	restore_redirection_char(cmd);
 	if (!ft_strcmp(cmd->cmd_and_av[0], "echo"))
 		return (ft_echo(cmd->ac, cmd->cmd_and_av));
@@ -93,7 +83,7 @@ static int	execute_cmd(t_cmd_info *cmd, t_env_info *info_env)
 		return (ft_env(info_env));
 	if (!ft_strcmp(cmd->cmd_and_av[0], "exit"))
 		return (ft_exit(cmd));
-	return (os_builtins(cmd, info_env, env_path, now_env));
+	return (os_builtins(cmd, info_env));
 }
 
 static void	do_fork_cmd(t_cmd_info *cmd, t_env_info *info_env)

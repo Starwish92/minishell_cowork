@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:57:38 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/17 21:45:53 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/13 14:48:46 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-long long	ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	long long	ret;
-	int			sign;
+	long	ret;
+	int		sign;
 
 	ret = 0;
 	sign = 1;

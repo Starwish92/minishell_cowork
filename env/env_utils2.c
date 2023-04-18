@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   env_utils2.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 20:10:25 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/18 16:32:45 by shane            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../minishell.h"
 
 char	*get_env_key2(char *key_value)
@@ -53,7 +41,5 @@ char	*ft_getenv(t_env_info *info_env, char *key)
 	t_env_info	*cur;
 
 	cur = compare_env_key(info_env, key);
-	if (ft_strcmp(cur->env_val, "don't_print_this"))
-		return (NULL);
 	return (cur->env_val);
 }
