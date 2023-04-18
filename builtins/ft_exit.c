@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:28:10 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/18 18:28:40 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/18 18:36:47 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static void	ft_exit_with_two_arg2(t_cmd_info *cmd)
 		ft_strlen(cmd->cmd_and_av[1]) == 2) || \
 		(ft_all_number(cmd->cmd_and_av[1]) && \
 		ft_strlen(cmd->cmd_and_av[1]) == 1) || \
-		(!ft_strcmp(cmd->cmd_and_av[1], "-9223372036854775808")))
+		(!ft_strcmp(cmd->cmd_and_av[1], "-9223372036854775808")) || \
+		(!ft_strcmp(cmd->cmd_and_av[1], "9223372036854775807")))
 	{
 		if (cmd->prev == NULL)
 			ft_write(STDOUT_FILENO, "exit\n", 5);
