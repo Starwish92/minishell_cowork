@@ -6,7 +6,7 @@
 #    By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 20:11:49 by hyyoo             #+#    #+#              #
-#    Updated: 2023/04/17 20:11:53 by hyyoo            ###   ########.fr        #
+#    Updated: 2023/04/18 17:34:43 by hyyoo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,10 +60,10 @@ SAN = -fsanitize=address -g3
 DEBUG = -g
 CC = gcc $(DEBUG) $(SAN)
 CFLAGS = -Werror -Wall -Wextra
-READLINE_LIB 	= -lreadline -L/opt/homebrew/opt/readline/lib
-READLINE_INC	= -I/opt/homebrew/opt/readline/include
-# READLINE_LIB 	= -lreadline -L${HOME}/.brew/opt/readline/lib
-# READLINE_INC	= -I${HOME}/.brew/opt/readline/include
+# READLINE_LIB 	= -lreadline -L/opt/homebrew/opt/readline/lib
+# READLINE_INC	= -I/opt/homebrew/opt/readline/include
+READLINE_LIB 	= -lreadline -L${HOME}/.brew/opt/readline/lib
+READLINE_INC	= -I${HOME}/.brew/opt/readline/include
 
 FT_DIR	= ./libft
 FT 	= ft
