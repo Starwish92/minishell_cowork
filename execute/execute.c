@@ -6,7 +6,7 @@
 /*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:50 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/18 16:44:29 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/18 17:30:58 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ static int	os_builtins(t_cmd_info *cmd, t_env_info *info_env)
 	char	**now_env;
 
 	env_path = ft_getenv(info_env, "PATH");
+	if (cmd->ft_command_path == NULL)
+	{
+		print_err3(cmd->cmd_and_av[0], NULL, "command not found");
+		return (127);
+	}
 	if (env_path == NULL && cmd->ft_command_path == NULL)
 	{
 		if (ft_strcmp(cmd->cmd_and_av[0], "don't_print_this\n") || \
@@ -58,11 +63,6 @@ static int	os_builtins(t_cmd_info *cmd, t_env_info *info_env)
 		cmd->ft_command_path == NULL)
 	{
 		print_err3(cmd->cmd_and_av[0], NULL, "No such file or directory");
-		return (127);
-	}
-	if (cmd->ft_command_path == NULL)
-	{
-		print_err3(cmd->cmd_and_av[0], NULL, "command not found");
 		return (127);
 	}
 	now_env = get_envp(info_env, 0);
