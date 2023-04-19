@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:28:33 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/19 14:17:10 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/19 15:42:41 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_env(t_env_info *cur)
 {
 	while (cur->env_key != 0)
 	{
-		if (!ft_strcmp(cur->env_val, ""))
+		if (!ft_strcmp(cur->env_val, "don't"))
 			cur = cur->next;
 		else
 		{
