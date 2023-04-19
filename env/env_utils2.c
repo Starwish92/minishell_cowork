@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_utils2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:29:03 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/18 18:29:04 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/19 14:28:52 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*get_env_value2(void)
 {
 	char	*temp;
 
-	temp = ft_strdup("don't_print_this");
+	temp = ft_strdup("don't");
 	return (temp);
 }
 

@@ -6,7 +6,7 @@
 /*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:57:50 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/18 22:01:58 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/19 14:36:45 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ static int	os_builtins(t_cmd_info *cmd, t_env_info *info_env)
 	}
 	if (cmd->ft_command_path == NULL)
 	{
+		if (!ft_strcmp(cmd->cmd_av[0], "don't"))
+			exit(0);
 		print_err3(cmd->cmd_av[0], NULL, "command not found");
 		return (127);
 	}

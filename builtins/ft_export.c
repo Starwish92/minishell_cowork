@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:28:50 by hyyoo             #+#    #+#             */
-/*   Updated: 2023/04/18 18:28:51 by hyyoo            ###   ########.fr       */
+/*   Updated: 2023/04/19 14:28:43 by yuhyeongmin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	ft_export_with_no_arg(t_env_info *info_env)
 	{
 		ft_write(STDOUT_FILENO, "declare -x ", 11);
 		ft_write(STDOUT_FILENO, cur->env_key, ft_strlen(cur->env_key));
-		if (ft_strcmp(cur->env_val, "don't_print_this") != 0)
+		if (ft_strcmp(cur->env_val, "don't") != 0)
 		{
 			ft_write(STDOUT_FILENO, "=\"", 2);
 			ft_write(STDOUT_FILENO, cur->env_val, ft_strlen(cur->env_val));
