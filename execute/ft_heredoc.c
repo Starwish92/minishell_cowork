@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_heredoc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:00:55 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/18 22:01:58 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/20 16:54:48 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,10 @@ static int	ft_fork_heredoc(t_cmd_info *cmd, int index_lim)
 		ret = ft_wait_heredoc(pid);
 	}
 	set_signal(SHE, SHE);
-	ft_command_argv_trim(cmd, redir_h, 2);
+	if (ft_strcmp(cmd->cmd_av[0],redir_h) == 0)
+		ft_command_argv_trim(cmd, redir_h, 1);
+	else
+		ft_command_argv_trim(cmd, redir_h, 2);
 	return (ret);
 }
 
