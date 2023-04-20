@@ -58,7 +58,7 @@ OBJS		= $(SRCS:%.c=%.o)
 
 # SAN = -fsanitize=address -g3
 DEBUG = -g
-CC = gcc $(DEBUG) 
+CC = cc $(DEBUG) 
 # $(SAN)
 CFLAGS = -Werror -Wall -Wextra
 READLINE_LIB 	= -lreadline -L/opt/homebrew/opt/readline/lib

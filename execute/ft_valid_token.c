@@ -23,11 +23,21 @@ static int	ft_check_start_one_pipe(t_cmd_info *cmd)
 	return (0);
 }
 
-int	ft_norm(void)
+int	ft_norm(t_cmd_info *cmd)
 {
-	print_err1("syntax error near unexpected token `newline'");
-	g_exit_signal_code = 258;
-	return (-1);
+	const char	iiiii[3] = {REDIR_R, REDIR_L, '\0'};
+
+	if (cmd->cmd_av[0][0] == iiiii[0] && cmd->cmd_av[1] != NULL)
+	{
+		print_err1("syntax error near unexpected token `<'");
+		g_exit_signal_code = 258;
+	}
+	else
+	{
+		print_err1("syntax error near unexpected token `newline'");
+		g_exit_signal_code = 258;
+	}
+	return -1;
 }
 
 static int	ft_check_redir_files(t_cmd_info *cmd, int i, int ret)
@@ -49,8 +59,8 @@ static int	ft_check_redir_files(t_cmd_info *cmd, int i, int ret)
 				!ft_strcmp(cmd->cmd_av[i], heredoc))
 			if (cmd->cmd_av[i + 1] == NULL || !ft_strlen(cmd->cmd_av[i + 1]))
 				ret = -1;
-		if (ret == -1 && ft_strcmp(cmd->cmd_av[i], ia))
-			return (ft_norm());
+		if (ret == -1)
+			return (ft_norm(cmd));
 		++i;
 	}
 	return (0);
