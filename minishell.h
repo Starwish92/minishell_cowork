@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:07:34 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/18 22:01:58 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/20 18:13:17 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define SHE 0
 # define DFL 1
 # define IGN 2
+# define SHD 3
 
 int	g_exit_signal_code;
 

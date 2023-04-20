@@ -6,7 +6,7 @@
 /*   By: shane <shane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:00:55 by youngjpa          #+#    #+#             */
-/*   Updated: 2023/04/20 16:54:48 by shane            ###   ########.fr       */
+/*   Updated: 2023/04/20 19:02:08 by shane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int	ft_fork_heredoc(t_cmd_info *cmd, int index_lim)
 	int			ret;
 	const char	redir_h[3] = {REDIR_L, REDIR_L, '\0'};
 
-	set_signal(DFL, SHE);
+	set_signal(SHD, SHE);
 	pid = fork();
 	if (pid == 0)
 	{
